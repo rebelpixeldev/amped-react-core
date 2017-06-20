@@ -1,0 +1,20 @@
+
+.amp-transition-page-enter,
+.amp-transition-page-appear {
+  opacity: 0.01;
+}
+
+.amp-transition-page-enter.amp-transition-page-enter-active,
+.amp-transition-page-appear.amp-transition-page-appear-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.amp-transition-page-leave {
+  opacity: 1;
+}
+
+.amp-transition-page-leave.amp-transition-page-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}

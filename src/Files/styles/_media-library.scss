@@ -1,0 +1,20 @@
+@import '../../Core/styles/variables';
+
+.amp-media-library{
+  &__header{
+    display:flex; flex-direction:row;
+  }
+
+  &__files{
+    display:flex; flex-flow: wrap; margin-top:$grid-gutter-width/2; margin-left:-$grid-gutter-width/4; margin-right:$grid-gutter-width/4;
+  }
+
+  .amp-media-library-item{
+    width:150px; height:150px; padding:$grid-gutter-width/4;
+    img{width:100%;}
+  }
+
+  &__controls{
+    display:flex; width:100%; justify-content: space-between; align-items:center;
+  }
+}

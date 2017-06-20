@@ -1,0 +1,10 @@
+@import '../../Core/styles/variables';
+
+.amped-table--header{
+  cursor:pointer; user-select: none;
+  &--sort-DESC:before, &--sort-ASC:before{
+    position:absolute; top:50%; right:$grid-gutter-width/2; transform:translateY(-50%);
+  }
+  &--sort-DESC:before{content:'\2193'}
+  &--sort-ASC:before{content:'\2191'}
+}

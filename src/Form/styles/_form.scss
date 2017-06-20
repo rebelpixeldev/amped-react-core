@@ -1,0 +1,63 @@
+@import '../../Core/styles/variables';
+
+/**
+  TABLE OF CONTENTS
+  1. form
+  2. Elements
+    2.1 Image
+
+ */
+
+/** * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 1.
+    Form
+ */
+.amped-form{
+  //&__with-padding{padding:0 $grid-gutter-width/2 $grid-gutter-width/2;}
+  //&__content{padding-bottom:$grid-gutter-width; margin-bottom:$grid-gutter-width; border-bottom:1px solid rgb(224, 224, 224);}
+  &__row{
+    display:flex !important; align-items:center; height:auto !important;
+    &> div{height:auto !important;}
+    &> div > div{display:flex !important;}
+  }
+  &__label{
+    position: absolute;
+    line-height: 22px;
+    top: 25px;
+    transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    z-index: 1;
+    transform: scale(0.75) translate(0px, -28px);
+    transform-origin: left top 0px;
+    pointer-events: none;
+    user-select: none;
+    color: rgba(0, 0, 0, 0.3);
+  }
+  &__checkbox-group-container{
+    width:100%;
+  }
+  &__radio-group-container{
+    width:100%;
+  }
+  &__textarea-container{
+    width:100%; min-height:300px; height:100%;
+  }
+}
+
+/** * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 2.
+    Elements
+ */
+  /** * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 1.
+    Image
+  */
+  .image-form-element{
+    display:flex; flex-direction:column;
+    &--outer{
+      display:flex; flex-direction:row; align-items:center;
+    }
+    &--preview{
+      width:100px; margin-right:$grid-gutter-width/2;
+    }
+    &--title{margin-bottom:$grid-gutter-width/4; display:block;}
+    &--label{
+      color:rgba(0, 0, 0, 0.298039); line-height: 22px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; z-index: 1; transform: scale(0.85); transform-origin: left top 0px; pointer-events: none; user-select: none;
+    }
+  }

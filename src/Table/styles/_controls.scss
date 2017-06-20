@@ -1,0 +1,10 @@
+@import '../../Core/styles/variables';
+
+.amped-table{
+  &--controls{
+    display:flex; flex-direction:row; justify-content: space-between; padding:$grid-gutter-width/2 0 0;
+    &--filter{
+      margin-top:-$grid-gutter-width;
+    }
+  }
+}

@@ -1,0 +1,1 @@
+export {default as AmpedAvatar} from './containers/Avatar';

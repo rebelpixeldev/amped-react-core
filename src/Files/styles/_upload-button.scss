@@ -1,0 +1,19 @@
+@import '../../Core/styles/variables';
+
+.amp-upload-btn{
+  position:relative; cursor:pointer;
+
+  button > div > div{
+    transition:padding-right 0.3s ease-out;
+    padding-right:$grid-gutter-width/2; padding-left:$grid-gutter-width/2; color:#fff;
+  }
+  &--uploading{
+    button > div > div {
+      padding-right: 50px;
+    }
+  }
+
+  &__input{
+    position:absolute; top:0; left:0; width:100%; height:100%; z-index:9; opacity:0; cursor:pointer;
+  }
+}
