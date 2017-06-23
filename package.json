@@ -17,9 +17,10 @@
     "dist:min": "webpack --env distMin",
     "dist:modules": "rimraf ./dist-modules && BABEL_ENV=modules babel ./src --out-dir ./dist-modules"
   },
-  "main": "dist-modules",
+  "main": "dist-es6",
   "module": "dist-es6",
   "jsnext:main": "dist-es6",
+  "entry" : "dist-es6/index.js",
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
