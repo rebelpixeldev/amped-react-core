@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { default as AmpedTableComponent } from '../components/Table'
-import { TextCell, DateFromCell, ImageCell } from 'amped/Table/Cells';
+import { TextCell, DateFromCell, ImageCell } from 'amped-react-core/Table/Cells';
 import { ITEM_SELECTED, ON_CANCEL, ON_DELETE, ON_EDIT } from '../actions';
 
 import IconMenu from 'material-ui/IconMenu';

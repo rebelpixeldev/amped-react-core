@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux'
 
 import { default as LineComponent } from '../components/Line'
-import { AmpedTransitionPage, ampedSocketConnector, AmpedService } from 'amped/Core';
-import { LineChart, AmpedChartFactory } from 'amped/Charts';
+import { AmpedTransitionPage, ampedSocketConnector, AmpedService } from 'amped-react-core/Core';
+import { LineChart, AmpedChartFactory } from 'amped-react-core/Charts';
 
 const mapStateToProps = (state) => ({
 	user : state.amped.user,

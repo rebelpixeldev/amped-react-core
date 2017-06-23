@@ -2,8 +2,8 @@ import React from 'react';
 
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 
-import { AmpedCard } from 'amped/Common';
-import { Form } from 'amped/Form';
+import { AmpedCard } from 'amped-react-core/Common';
+import { Form } from 'amped-react-core/Form';
 
 export const Table = ( {formData, loading, model, onSave} ) => {
 	const dummyForm = {

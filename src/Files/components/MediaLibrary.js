@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { AmpedUploadButton } from 'amped/Files';
-import { AmpedLoader, AmpedPagination } from 'amped/Common';
+import { AmpedUploadButton } from 'amped-react-core/Files';
+import { AmpedLoader, AmpedPagination } from 'amped-react-core/Common';
 
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';

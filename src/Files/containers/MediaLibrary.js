@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { connect } from 'react-redux'
-import {AmpedService, ampedSocketConnector} from "amped/Core";
-import { AmpedUploadsfactory } from 'amped/Files';
+import {AmpedService, ampedSocketConnector} from "amped-react-core/Core";
+import { AmpedUploadsfactory } from 'amped-react-core/Files';
 
 import MediaLibraryComponent from '../components/MediaLibrary';
 

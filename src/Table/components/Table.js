@@ -1,6 +1,6 @@
 import React from 'react';
-import { AmpedTableActionBar, AmpedTableControls } from 'amped/Table';
-import { AmpedLoader } from 'amped/Common';
+import { AmpedTableActionBar, AmpedTableControls } from 'amped-react-core/Table';
+import { AmpedLoader } from 'amped-react-core/Common';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 
 export const AmpedTable = ( { headers, data, modifiedData, cellMap, tableProps, loading, perpage, page, sortOrder, sortColumn, onFilterChange, onPageChange, onSort } ) => {

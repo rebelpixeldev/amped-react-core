@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {LoaderButton} from 'amped/Form';
+import {LoaderButton} from 'amped-react-core/Form';
 
 export class UploadButton extends React.Component{
 	static propTypes = {

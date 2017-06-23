@@ -3,7 +3,7 @@ import { withRouter } from 'react-router'
 import { connect } from 'react-redux'
 import { default as TopbarComponent } from '../components/Topbar'
 
-import { AmpedStorage } from 'amped/Core';
+import { AmpedStorage } from 'amped-react-core/Core';
 
 import '../style/_topbar.scss';
 

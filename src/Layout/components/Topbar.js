@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { AmpedAvatar } from 'amped/User';
+import { AmpedAvatar } from 'amped-react-core/User';
 
 import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';

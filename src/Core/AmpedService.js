@@ -1,4 +1,4 @@
-import { SHOW_SNACK_BAR, HIDE_SNACK_BAR, SHOW_CONFIRM } from 'amped/Alerts/actions';
+import { SHOW_SNACK_BAR, HIDE_SNACK_BAR, SHOW_CONFIRM } from 'amped-react-core/Alerts/actions';
 import { AmpedStorage } from './AmpedStorage';
 
 // import 'whatwg-fetch'

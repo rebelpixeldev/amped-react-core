@@ -5,7 +5,7 @@ import UploadButtonComponent from '../components/UploadButton'
 
 import '../styles/_upload-button.scss';
 
-import { AmpedService } from 'amped/Core';
+import { AmpedService } from 'amped-react-core/Core';
 
 const mapStateToProps = (state) => ({
 	user : true,

@@ -1,9 +1,9 @@
 import React from 'react';
-import { AmpedTable } from 'amped/Table';
-import { AmpedCard } from 'amped/Common';
+import { AmpedTable } from 'amped-react-core/Table';
+import { AmpedCard } from 'amped-react-core/Common';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 
-import { SHOW_SNACK_BAR, HIDE_SNACK_BAR } from 'amped/Alerts/actions';
+import { SHOW_SNACK_BAR, HIDE_SNACK_BAR } from 'amped-react-core/Alerts/actions';
 
 
 

@@ -3,7 +3,7 @@ import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import Divider from 'material-ui/Divider';
 import LinearProgress from 'material-ui/LinearProgress';
 
-import {Form, Button, LoaderButton} from 'amped/Form';
+import {Form, Button, LoaderButton} from 'amped-react-core/Form';
 
 export class Register extends React.Component{
 

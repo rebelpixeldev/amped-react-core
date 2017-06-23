@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { default as AvatarComponent } from '../components/Avatar'
 
-import { ampedSocketConnector } from 'amped/Core';
+import { ampedSocketConnector } from 'amped-react-core/Core';
 
 import '../style/_avatar.scss';
 

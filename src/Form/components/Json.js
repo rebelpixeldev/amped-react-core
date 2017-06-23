@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Input } from 'amped/Form';
+import { Input } from 'amped-react-core/Form';
 
 export const Json = ( { name, value, formValues, onFieldChange } ) => {
 	const keys = Object.keys(value);

@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { SnackBar, Confirm } from 'amped/Alerts';
-import { AmpedLoader } from 'amped/Common';
-import {Topbar, Sidebar} from 'amped/Layout'
-import { AmpedTransitionPage } from 'amped/Core';
+import { SnackBar, Confirm } from 'amped-react-core/Alerts';
+import { AmpedLoader } from 'amped-react-core/Common';
+import {Topbar, Sidebar} from 'amped-react-core/Layout'
+import { AmpedTransitionPage } from 'amped-react-core/Core';
 
 
 export const AmpedApp = ( { children, setup, user } ) => {

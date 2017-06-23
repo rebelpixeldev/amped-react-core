@@ -1,12 +1,12 @@
 import {connect} from 'react-redux'
 import FormComponent from '../components/Form'
-import { CrudService } from 'amped/Crud';
+import { CrudService } from 'amped-react-core/Crud';
 
-import { AmpedService }  from 'amped/Core/AmpedService';
+import { AmpedService }  from 'amped-react-core/Core/AmpedService';
 
 import '../../Core/styles/_cards.scss';
 
-import { SET_VALUES, REMOVE_VALUES, UPDATE_FIELD } from 'amped/Form/actions';
+import { SET_VALUES, REMOVE_VALUES, UPDATE_FIELD } from 'amped-react-core/Form/actions';
 
 const mapStateToProps = (state) => ({
 	user: true,

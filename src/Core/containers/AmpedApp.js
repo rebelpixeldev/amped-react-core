@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import { default as AmpedAppComponent } from '../components/AmpedApp'
 import { SET_USER, SET_CONFIG } from '../actions';
-import { AmpedService } from 'amped/Core/AmpedService';
+import { AmpedService } from 'amped-react-core/Core/AmpedService';
 
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {AmpedUploadButton, AmpedMediaLibraryModalTrigger} from 'amped/Files';
+import {AmpedUploadButton, AmpedMediaLibraryModalTrigger} from 'amped-react-core/Files';
 
 export const Image = ({type = 'text', label, name, value, onFieldChange, formValues, ...props}) => {
 

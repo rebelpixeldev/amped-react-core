@@ -1,5 +1,5 @@
 import * as io from 'socket.io-client';
-import { AmpedUtil, AmpedStorage } from 'amped/Core';
+import { AmpedUtil, AmpedStorage } from 'amped-react-core/Core';
 
 
 export class AmpedSocket{

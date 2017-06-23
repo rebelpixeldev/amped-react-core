@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { AmpedLoader } from 'amped/Common';
+import { AmpedLoader } from 'amped-react-core/Common';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 
 

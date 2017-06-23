@@ -2,7 +2,7 @@ import React from 'react';
 
 import { connect } from 'react-redux'
 import MediaLibraryComponent from '../components/MediaLibraryPage'
-import { AmpedTransitionPage } from 'amped/Core';
+import { AmpedTransitionPage } from 'amped-react-core/Core';
 
 const mapStateToProps = (state) => ({
 	user : true,

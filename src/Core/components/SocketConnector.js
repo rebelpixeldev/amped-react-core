@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { AmpedSocket, AmpedUtil } from 'amped/Core';
+import { AmpedSocket, AmpedUtil } from 'amped-react-core/Core';
 
 export function socketConnector(WrappedComponent, model = '*'){
 

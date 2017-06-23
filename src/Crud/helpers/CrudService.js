@@ -1,4 +1,4 @@
-import { AmpedService } from 'amped/Core/AmpedService';
+import { AmpedService } from 'amped-react-core/Core/AmpedService';
 
 export class CrudService{
 
