@@ -1,8 +1,7 @@
 {
-  "name": "react-component-boilerplate",
-  "description": "Boilerplate for React.js components",
-  "author": "Juho Vepsalainen",
-  "user": "survivejs",
+  "name": "amped-react-core",
+  "description": "The core react components for the Amped Framework",
+  "author": "Ted Sczelecki",
   "version": "5.0.0",
   "scripts": {
     "start": "webpack-dev-server --env dev",
