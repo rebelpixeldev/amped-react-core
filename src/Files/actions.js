@@ -1,1 +1,1 @@
-export UPLOADS_ADD = 'UPLOADS_ADD';
+export const UPLOADS_ADD = 'UPLOADS_ADD';

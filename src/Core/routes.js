@@ -1,7 +1,12 @@
+import {default as Crud} from '../Crud/routes';
+import {default as Files} from '../Files/routes';
+import {default as User} from '../User/routes';
+
+
 export default (store, injectReducer) =>
 	[
-		...require('../Crud/routes').default(store, injectReducer),
-		...require('../Files/routes').default(store, injectReducer),
-		...require('../User/routes').default(store, injectReducer)
+		...Crud(store, injectReducer),
+		...Files(store, injectReducer),
+		...User(store, injectReducer)
 
 	]

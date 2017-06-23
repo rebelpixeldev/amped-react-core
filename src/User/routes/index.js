@@ -1,3 +1,5 @@
+import UserProfilePage from './UserProfilePage';
+
 export default (store, injectReducer) => [
-	require('./UserProfilePage').default(store, injectReducer)
+	UserProfilePage(store, injectReducer)
 ]

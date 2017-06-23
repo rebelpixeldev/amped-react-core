@@ -1,4 +1,7 @@
+import Table from './Table';
+import Form from './Form';
+
 export default (store, injectReducer) => [
-	require('./Table').default(store, injectReducer),
-	...require('./Form').default(store, injectReducer),
+	Table(store, injectReducer),
+	...Form(store, injectReducer),
 ]
