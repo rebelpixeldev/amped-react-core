@@ -11,12 +11,10 @@ export function socketConnector(WrappedComponent, model = '*'){
 			this.props = props;
 			this.model = typeof this.props.model === 'undefined' ? model : this.props.model;
 
-			console.log('SOCKET MODEL' , this.model);
 			this.instance = null;
 		}
 		
 		componentDidMount(){
-console.log( this.model === '*');
 			if ( this.model === '*'){
 				AmpedSocket.getSocket().on('*', this.callInstanceMethod.bind(this, 'handleSocket'));
 			} else {
@@ -24,7 +22,6 @@ console.log( this.model === '*');
 					this.getEventName('update'),
 					this.getEventName('delete')
 					].forEach(( evtName ) => {
-					console.log(evtName);
 					AmpedSocket.getSocket().on(evtName, this.handleSocketEvent.bind(this, evtName))
 
 				} )
@@ -37,7 +34,6 @@ console.log( this.model === '*');
 		}
 
 		handleSocketEvent(evt, data){
-			console.log('HANDLING SOCKET EVENT', evt);
 			evt = evt.toLowerCase();
 			if ( this.instance !== null ){
 				if ( evt.indexOf('_create') !== -1 )

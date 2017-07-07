@@ -13,6 +13,7 @@ export { AmpedService, AmpedUtil, AmpedSocket, AmpedStorage };
 
 
 export const AmpedSetup = (store) => {
+	console.log('SETTING UP');
 	AmpedService.store = store;
 	AmpedSocket.setup(store);
 }
