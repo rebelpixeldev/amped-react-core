@@ -71,7 +71,7 @@ export class AmpedService{
 				.then(this._getBody.bind(this, req.headers))
 				.then(this._parseJSON.bind(this, req.headers))
 				.then((resp) => {
-					if ( resp.message !== '' )
+					if ( resp.message !== '' && !supressSnack )
 						AmpedService.store.dispatch({type : SHOW_SNACK_BAR, message : resp.message, level : resp.success ? 'success' : 'error'});
 
 					// AmpedService.store.dispatch({type : SHOW_CONFIRM, message : 'ARE YOU SURE?!?!'});

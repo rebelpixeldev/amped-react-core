@@ -15,7 +15,6 @@ export default function valuesReducer (state = {}, action) {
 			const form = Object.assign({}, state[action.formName]);
 			form[action.fieldName] = action.value;
 			return Object.assign({}, state, {[action.formName] : form});
-
 	}
 
 	return state;

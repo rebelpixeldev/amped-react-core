@@ -14,6 +14,7 @@
 .amped-form{
   //&__with-padding{padding:0 $grid-gutter-width/2 $grid-gutter-width/2;}
   //&__content{padding-bottom:$grid-gutter-width; margin-bottom:$grid-gutter-width; border-bottom:1px solid rgb(224, 224, 224);}
+  width:100%;
   &__row{
     display:flex !important; align-items:center; height:auto !important;
     &> div{height:auto !important;}

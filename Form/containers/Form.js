@@ -186,6 +186,9 @@ export class Form extends React.Component{
 
 		AmpedService[this.props.data.method.toLowerCase()](this.props.data.action, vals)
 			.then((resp) => {
+				console.log('RESPONSE', resp);
+				console.log(this.props.onSubmit);
+				console.log(this.props);
 				this.props.onSubmit(resp);
 				if ( resp.success )
 					this.props.onSubmitSuccess(resp);
