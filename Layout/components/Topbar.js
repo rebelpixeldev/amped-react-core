@@ -16,26 +16,28 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 
 
-export const Topbar = ( props ) => (
-	<AppBar
-		zDepth={2}
-		title={props.settings.site.name}
-		onTitleTouchTap={() => props.router.push(`/`)}
-		iconElementRight={props.user ? <LoggedIn {...props} /> : <Login {...props} />}
-	/>
-);
+export const Topbar = ( props ) => {
+	return (
+		<AppBar
+			zDepth={2}
+			title={props.settings.site.name}
+			onTitleTouchTap={() => props.router.push(`/`)}
+			iconElementRight={props.user && Object.keys(props.user).length > 0 ? <LoggedIn {...props} /> : <Login {...props} />}
+		/>
+	);
+}
 
-class Login extends Component {
+export class Login extends Component {
 	static muiName = 'FlatButton';
 
 	render() {
 		return (
-			<FlatButton {...this.props} label="Login" />
+			<FlatButton {...this.props} label="Login" onTouchTap={(  ) => this.props.router.push(`/login`)} />
 		);
 	}
 }
 
-const LoggedIn = (props) => {
+export const LoggedIn = (props) => {
 	return (
 		<div className="amp-topbar">
 			<span className="amp-topbar__avatar" onClick={() => props.router.push(`/user/profile`)}>

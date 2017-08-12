@@ -4,22 +4,27 @@ import { default as MaterialAvatar } from 'material-ui/Avatar';
 
 import { DefaultAvatar } from './DefaultAvatar';
 
-export const Avatar = ( {user} ) => {
+export const Avatar = ( {user, showUsername, size} ) => {
 	return (
 		<span>
 			{ typeof user.id !== 'undefined' && (
 				<span className="amped-avatar">
-					<div style={{'marginRight':12}}>
+					<div style={showUsername ? {'marginRight':12} : {}}>
 						{user.upload !== null ? (
-							<MaterialAvatar src={user.upload.thumb_url}></MaterialAvatar>) :
-							(<DefaultAvatar user={user} />)
+							<MaterialAvatar src={user.upload.thumb_url} size={size} />) :
+							(<DefaultAvatar size={size} user={user} />)
 						}
 					</div>
-					{user.display_name}
+					{showUsername && (<span>{user.display_name}</span>) }
 				</span>
 			)}
 		</span>
 	);
+}
+
+Avatar.defaultProps = {
+	showUsername : true,
+	size : 40
 }
 
 export default Avatar;

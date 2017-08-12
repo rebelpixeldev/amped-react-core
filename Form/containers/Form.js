@@ -39,6 +39,7 @@ export class Form extends React.Component{
 	constructor(props){
 		super(props);
 		this.props = props;
+
 		this.foo = 'bar';
 
 		this.submit = this.onSubmit.bind(this);
@@ -48,28 +49,28 @@ export class Form extends React.Component{
 		}
 
 		this.service = new CrudService(this.props.model);
+		this.setFormValues();
 	}
 
 	componentWillReceiveProps(nextProps){
-
 		if (
 			( typeof this.props.formValues[this.props.name] === 'undefined' &&
 				typeof nextProps.data.fields !== 'undefined' && nextProps.data.fields.length > 0 ) ||
 			( nextProps.name !== this.props.name ) ||
 			( typeof nextProps.formValues[nextProps.name] !== 'undefined' && nextProps.formValues[nextProps.name].id !== this.props.formValues[this.props.name].id )
 		) {
-
 			this.props = nextProps;
 			this.setFormValues();
 		}
 	}
 
 	setFormValues(){
-		this.props.dispatch({
-			type : SET_VALUES,
-			fields : this.props.data.fields,
-			name : this.props.name
-		})
+		if ( typeof this.props.data !== 'undefined' && this.props.name !== 'undefined' )
+			this.props.dispatch({
+				type : SET_VALUES,
+				fields : this.props.data.fields,
+				name : this.props.name
+			})
 		// this.setState({
 		// 	formValues : this.props.data.fields.reduce((values, row) => {
 		// 		row.forEach((col) => {
@@ -185,14 +186,15 @@ export class Form extends React.Component{
 
 		AmpedService[this.props.data.method.toLowerCase()](this.props.data.action, vals)
 			.then((resp) => {
+				console.log('RESPONSE', resp);
+				console.log(this.props.onSubmit);
+				console.log(this.props);
 				this.props.onSubmit(resp);
 				if ( resp.success )
 					this.props.onSubmitSuccess(resp);
 				else
 					this.props.onSubmitError(resp);
 			}).catch(( err ) => {
-			console.log('CAAAT');
-			console.log(this.props.onSubmit);
 				this.props.onSubmit(err);
 				this.props.onSubmitError(err);
 			});

@@ -1,32 +1,61 @@
 import React from 'react';
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 
-export class TransitionPage extends React.Component{
+import {AmpedLoader} from 'amped-react-core/Common';
 
-	static propTypes = {
-		name : React.PropTypes.string,
-		style : React.PropTypes.object
-	};
+export class TransitionPage extends React.Component {
 
-	static defaultProps = {
-		style : {}
+	defaultProps = {
+		loading: false
 	}
 
-	constructor(props){
+	constructor(props) {
 		super(props);
 		this.props = props;
-		this.state = {};
 	}
 
-	render(){
-
+	render() {
 		return (
-			<div style={this.props.style}>
-				{this.props.children}
+			<div className="amp-transition-page">
+				{ this.props.loading ? (
+						<AmpedLoader loading={true}/>
+					) : (
+						<div>{this.props.children}</div>
+					)}
 			</div>
-		);
+		)
 	}
 
 }
 
-export default connect()(TransitionPage);
+export default TransitionPage;
+
+
+// export class TransitionPage extends React.Component{
+//
+// 	static propTypes = {
+// 		name : React.PropTypes.string,
+// 		style : React.PropTypes.object
+// 	};
+//
+// 	static defaultProps = {
+// 		style : {}
+// 	}
+//
+// 	constructor(props){
+// 		super(props);
+// 		this.props = props;
+// 	}
+//
+// 	render(){
+//
+// 		return (
+// 			<div style={this.props.style}>
+// 				{this.props.children}
+// 			</div>
+// 		);
+// 	}
+//
+// }
+//
+// export default connect()(TransitionPage);

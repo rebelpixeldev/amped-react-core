@@ -1,4 +1,4 @@
-import * as io from 'socket.io-client';
+import  * as io from 'socket.io-client';
 import { AmpedUtil, AmpedStorage } from 'amped-react-core/Core';
 
 
@@ -14,6 +14,7 @@ export class AmpedSocket{
 	}
 
 	static connect(){
+		console.log('CONNECtING');
 		if ( this.socket === null && AmpedStorage.getToken() !== null ){
 			this.socket = io.connect(this._store.getState().amped.settings.urls.socket.domain, {
 				query : AmpedUtil.objectToQueryString({
@@ -25,6 +26,8 @@ export class AmpedSocket{
 	}
 
 	static getSocket(){
+		if ( this.socket === null )
+			return {on : (  ) => {} }
 		return this.socket;
 	}
 

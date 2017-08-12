@@ -5,9 +5,11 @@ import Divider from 'material-ui/Divider';
 import {Form, Button, LoaderButton} from 'amped-react-core/Form';
 
 export class Login extends React.Component{
-
 	render(){
+
 		const {loginFormData, settings, requesting, onSubmit, onRequestStart} = this.props;
+
+		console.log(loginFormData);
 
 		return (
 			<Card className="amped-card amped-login-card" style={{width: 450}}>

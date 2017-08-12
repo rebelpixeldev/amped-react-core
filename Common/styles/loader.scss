@@ -1,10 +1,14 @@
-.amped-loader{
+.amp-loader{
   transition: opacity 0.3s ease-out;
   min-height:150px; width:100%; position:relative; pointer-events:none; display:none;
-  &--indicator{
-    position:absolute !important; top:50%; left:50%; transform:translate(-50%, -50%);
+  &__indicator{
+    position:absolute !important; top:calc(50% - 30px); left:50%; transform:translate(-50%, -50%);
   }
-  &--loading{
+  &__loading{
     opacity:1; display:block;
+  }
+
+  &__label{
+    position:absolute; top:calc(50% + 20px); left:50%; transform:translate(-50%, -50%); color:#aaa; font-size:0.8rem;
   }
 }

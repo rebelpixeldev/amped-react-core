@@ -2,7 +2,7 @@ import React from 'react';
 
 import '../style/_default-avatar.scss';
 
-export const DefaultAvatar = ( { user } ) => {
+export const DefaultAvatar = ( { user, className, size } ) => {
 
 	const hashCode = (str) => { // java String#hashCode
 		let hash = 0;
@@ -20,11 +20,20 @@ export const DefaultAvatar = ( { user } ) => {
 		return "00000".substring(0, 6 - c.length) + c;
 	}
 
-	console.log(intToRGB(hashCode(user.email)));
+	const style = {
+		width:size,
+		height:size,
+		backgroundColor: `#${intToRGB(hashCode(user.email || user.display_name))}`
+	}
 
     return (
-		<span className="default-avatar" style={{backgroundColor:`#${intToRGB(hashCode(user.email))}`}}>{user.display_name[0].toUpperCase()}</span>
+		<span className={`default-avatar ${className}`} style={style}>{user.display_name[0].toUpperCase()}</span>
     );
 };
+
+DefaultAvatar.defaultProps = {
+	className : '',
+	size : 40
+}
 
 export default DefaultAvatar;

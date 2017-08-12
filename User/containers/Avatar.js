@@ -8,7 +8,7 @@ import { ampedSocketConnector } from 'amped-react-core/Core';
 import '../style/_avatar.scss';
 
 const mapStateToProps = (state) => ({
-	user : state.amped.user,
+	currentUser : state.amped.user,
 	settings : state.amped.settings
 });
 
@@ -17,8 +17,15 @@ export class Avatar extends React.Component{
 		super(props);
 		this.props = props;
 		this.state = {
-			user : this.props.user
+			user : typeof this.props.user === 'undefined' ? this.props.currentUser : this.props.user
 		}
+	}
+
+	componentWillReceiveProps(nextProps){
+		if ( typeof nextProps.user !== 'undefined' )
+		this.setState((  ) => {
+		    return {user : nextProps.user }
+		})
 	}
 
 	handleSocketUpdate(socket){
@@ -30,7 +37,7 @@ export class Avatar extends React.Component{
 
 	render(){
 		return (
-			<AvatarComponent {...this.state} />
+			<AvatarComponent {...this.props} {...this.state} />
 		)
 	}
 
