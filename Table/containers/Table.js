@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { default as AmpedTableComponent } from '../components/Table'
 import { TextCell, DateFromCell, ImageCell } from 'amped-react-core/Table/Cells';
@@ -15,10 +16,6 @@ import '../styles/_form.scss';
 
 const _ = require('lodash');
 
-const mapDispatchToProps = {
-
-};
-
 const mapStateToProps = (state) => ({
 	user : true,
 	settings : state.settings,
@@ -28,15 +25,22 @@ const mapStateToProps = (state) => ({
 
 class AmpedTable extends React.Component{
 
+	/**
+	 * @prop {boolean} [downloadable=true] - Whether you are able to download the current content of the form or not
+	 * @prop {function} [getData] - The function that should be called to get the data to populate the table
+	 * @prop {object} [materialTableProps={}] - The props to be passed to the material-ui table
+	 * @prop {object} [menuItems=[]] - The items that should go in the action menu in each row
+	 */
 	static propTypes = {
-		getData : React.PropTypes.func.isRequired,
-		materialTableProps : React.PropTypes.object,
-		menuItems : React.PropTypes.array
+		downloadable        : PropTypes.bool,
+		getData             : PropTypes.func.isRequired,
+		materialTableProps  : PropTypes.object,
+		menuItems           : PropTypes.array
 	}
-
 	static defaultProps = {
 		materialTableProps : {},
-		menuItems : []
+		menuItems : [],
+		downloadable : true
 	}
 
 	static defaultTableProps = {
@@ -57,15 +61,28 @@ class AmpedTable extends React.Component{
 		}
 	}
 
-	handleFilter(){
-
-	}
-
+	/**
+	 * Called when the component mounts
+	 * Calls `getData` on the props and sets the default state after the data has been fetched
+	 * Default state is:
+	 *  {
+	 *		filterValue     : {string - ''},
+	 *		sortOrder       : {number (1||-1) - -1},
+	 *		sortColumn      : {string - null},
+	 *		loading         : {bool - false},
+	 *		sourceData      : {array - response from `getData`},
+	 *		modifiedData    : {array - response from `getData`},
+	 *		data            : {array - paginated version of response from `getData`},
+	 *		headers         : {array - headers from the response}
+	 *		headersVals     : {array - modified version of `headers`}
+	 *	}
+	 */
 	componentDidMount(){
 		this.props.getData()
 			.then(([data, headers]) => {
 
 				this.setState({
+					filterValue : '',
 					sortOrder : -1,
 					sortColumn : null,
 					loading : false,
@@ -80,7 +97,11 @@ class AmpedTable extends React.Component{
 			});
 	}
 
-
+	/**
+	 * Handles the delete of an item
+	 *
+	 * @param {number} id - id of the element that you want to remove and is filtered out from the data
+	 */
 	handleDeleteItem(id){
 		id = parseInt(id);
 		this.setState({
@@ -91,15 +112,14 @@ class AmpedTable extends React.Component{
 		})
 	}
 
-	handleUpdateItem(id, data){
-
-	}
-
-	handleAddItem(data){
-
-	}
-
-
+	/**
+	 * Gets the component to display in a cell on the table. Handles amped convention columns created_at, updated_at, menu, and upload
+	 * All the other cells are mapped to a TextCell by default with the value of `row[header]`
+	 *
+	 * @param {string} header - The header for the current cell
+	 * @param {object} row - The data for the current row.
+	 * @returns {ReactComponent}
+	 */
 	getCellComponent(header, row){
 
 		if ( header === 'menu' )
@@ -116,17 +136,35 @@ class AmpedTable extends React.Component{
 		return (<TextCell>{row[header]}</TextCell>);
 	}
 
-	handleRowSelect(index, second){
+	/**
+	 * A placeholder for if the row select is ever added to AmpedTable
+	 * @TODO add the ability to select a row based on material design data tables
+	 *
+	 * @param {number} index - The index of the row
+	 */
+	handleRowSelect(index){
 		// this.props.dispatch({
 		// 	type : ITEM_SELECTED,
 		// 	item : this.props.data.slice(0).splice(index, 1)[0]
 		// })
 	}
 
-	paginateData(data, page = this.state.page){
-		return data.slice((page-1) * this.state.perpage, page * this.state.perpage );
+	/**
+	 * Slices the data to whats needed on the page
+	 *
+	 * @param {object} data - The data to paginate
+	 * @param {number} [page = this.state.page] - The page to get the data for.
+	 * @param {number} [perpage = this.state.perpage] - The amount of results perpage.
+	 */
+	paginateData(data, page = this.state.page, perpage = this.state.perpage){
+		return data.slice((page-1) * perpage, page * perpage );
 	}
 
+	/**
+	 * Callback to handle a page change
+	 *
+	 * @param {number|string} [page] - The current page
+	 */
 	handlePageChange(page){
 		this.setState({
 			page,
@@ -134,9 +172,15 @@ class AmpedTable extends React.Component{
 		})
 	}
 
+	/**
+	 * Callback to handle the change of the table filter. A React event object or a string will be
+	 * passed to be used to filter the results
+	 *
+	 * @param {ReactEvent|string} [val] - The value that the filter hs been changed to
+	 */
 	handleFilterChange(val){
 
-		const filterVal = val.target.value.toLowerCase().trim();
+		const filterVal = typeof val === 'string' ? val : val.target.value.toLowerCase().trim();
 
 		const data = filterVal === '' ?
 					this.state.sourceData.slice(0) :
@@ -151,11 +195,18 @@ class AmpedTable extends React.Component{
 
 		this.setState({
 			modifiedData : data,
+			filterValue : filterVal,
 			data : this.paginateData(data,1),
 			page : 1
 		})
 	}
 
+	/**
+	 * Handles the sort of a column once the header is clicked. Initial it is set to -1(desc) and alternates
+	 * on each click
+	 *
+	 * @param {string} [header] - The name of the header that was clicked
+	 */
 	handleSort(header){
 
 		const sortOrder = header === this.state.sortColumn ? this.state.sortOrder * -1 : -1;
@@ -186,10 +237,49 @@ class AmpedTable extends React.Component{
 		});
 	}
 
+	/**
+	 * The callback for when the table download button is clicked. This will use the current filtered data object
+	 * (modifiedData) and create a Blob object to download for the user.
+	 *
+	 * @TODO need to set the filename based on a model name... also have to pass the model/filename in through the props
+	 */
+	handleTableDownload(){
+		const headers = Object.keys(this.state.headers);
 
+		let csv = headers.slice(0) + '\n';
+
+		csv += this.state.modifiedData.map(( item ) => {
+		    return headers.map(( header ) => {
+		    	const val = item[this.state.headers[header]];
+		    	return typeof val === 'string' ? val : `"${JSON.stringify(val)}"`;
+		    }).join(',');
+		}).join('\n');
+
+		let a = document.createElement('a');
+
+		if (navigator.msSaveBlob) { // IE10
+			navigator.msSaveBlob(new Blob([content], {
+				type: mimeType
+			}), fileName);
+		} else if (URL && 'download' in a) { //html5 A[download]
+			a.href = URL.createObjectURL(new Blob([csv], {
+				type: 'text/csv;encoding:utf-8'
+			}));
+			a.setAttribute('download', 'need-to-pass-model.csv');
+			document.body.appendChild(a);
+			a.click();
+			document.body.removeChild(a);
+		} else {
+			location.href = 'data:application/octet-stream,' + encodeURIComponent(content); // only this mime type is supported
+		}
+	}
+
+	/**
+	 * Renders the table
+	 *
+	 * @returns {ReactComponent}
+	 */
 	render(){
-
-		console.log('RENDERING', this.state.sourceData.length);
 		const tableProps = Object.assign({}, {
 			multiSelectable : true,
 			onRowSelection : this.handleRowSelect.bind(this)
@@ -199,6 +289,7 @@ class AmpedTable extends React.Component{
 			<AmpedTableComponent
 				onPageChange={this.handlePageChange.bind(this)}
 				onFilterChange={this.handleFilterChange.bind(this)}
+				onDownload={this.handleTableDownload.bind(this)}
 				onSort={this.handleSort.bind(this)}
 				cellMap={this.getCellComponent.bind(this)}
 				tableProps={tableProps}
@@ -209,7 +300,13 @@ class AmpedTable extends React.Component{
 
 }
 
-
+/**
+ * The componet for the table row menu
+ *
+ * @param {array} [menuItems] - The menu items for the dropdown
+ * @param {object} [row] - The current row data to use within the menu
+ * @constructor
+ */
 export const TableRowMenu = ( { menuItems, row } ) => (
 	<IconMenu
 		iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}

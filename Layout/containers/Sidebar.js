@@ -10,6 +10,7 @@ import PermMedia from 'material-ui/svg-icons/action/perm-media';
  Keys will be passed as props to presentational components. Here we are
  implementing our wrapper around increment; the component doesn't care   */
 
+import '../style/_sidebar.scss';
 
 const mapStateToProps = (state) => ({
 	user : true,

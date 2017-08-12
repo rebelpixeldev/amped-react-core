@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { AmpedTable } from 'amped-react-core/Table';
 import { AmpedCard } from 'amped-react-core/Common';
 import { AmpedService }  from 'amped-react-core/Core/AmpedService';
-import { AmpedTransitionPage, ampedSocketConnector } from 'amped/Core';
+import { AmpedTransitionPage, ampedSocketConnector } from 'amped-react-core/Core';
 import { SHOW_CONFIRM, HIDE_CONFIRM } from 'amped-react-core/Alerts/actions';
 
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';

@@ -5,7 +5,7 @@ export * from './Common';
 export * from './Core';
 export * from './Crud';
 export * from './Files';
-export * from './Forms';
+export * from './Form';
 export * from './Layout';
 export * from './Table';
 export * from './User';

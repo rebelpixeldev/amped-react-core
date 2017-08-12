@@ -1,0 +1,7 @@
+.amped-sidebar{
+  height:100vh;
+  div div:last-child .amped-sidebar__item{border-bottom:none !important}
+  &__item{
+    border-bottom:solid 1px #ddd !important;
+  }
+}

@@ -3,7 +3,12 @@ import { AmpedTableActionBar, AmpedTableControls } from 'amped-react-core/Table'
 import { AmpedLoader } from 'amped-react-core/Common';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 
-export const AmpedTable = ( { headers, data, modifiedData, cellMap, tableProps, loading, perpage, page, sortOrder, sortColumn, onFilterChange, onPageChange, onSort } ) => {
+export const AmpedTable = ( {
+	headers, data, modifiedData, cellMap, tableProps,
+	perpage, page, sortOrder, sortColumn, downloadable,
+	loading, filterValue,
+	onFilterChange, onPageChange, onSort, onDownload
+} ) => {
 	return (
 		<span style={{position : 'relative'}}>
 			{ headers && data && !loading ? (
@@ -11,8 +16,11 @@ export const AmpedTable = ( { headers, data, modifiedData, cellMap, tableProps, 
 					{/*<AmpedTableActionBar />*/}
 					<AmpedTableControls
 						total={modifiedData.length}
+						filterValue={filterValue}
+						downloadable={downloadable}
 						page={page}
 						perpage={perpage}
+						onDownload={onDownload}
 						onFilterChange={onFilterChange}
 					    onPageChange={onPageChange}
 					/>

@@ -4,7 +4,11 @@
   &--controls{
     display:flex; flex-direction:row; justify-content: space-between; padding:$grid-gutter-width/2 0 0;
     &--filter{
-      margin-top:-$grid-gutter-width;
+      margin-top:-$grid-gutter-width; position:relative;
     }
+    &--clear{
+      position:absolute !important; right:0; bottom:10px; width:40px; min-width:40px !important;
+    }
+    &--input{padding-right:40px !important;}
   }
 }

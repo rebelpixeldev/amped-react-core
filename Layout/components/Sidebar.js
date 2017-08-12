@@ -10,7 +10,7 @@ import ActionInfo from 'material-ui/svg-icons/action/info';
 
 
 const NavItem = ( props ) => (
-	<ListItem primaryText={props.label} leftIcon={<props.icon />} onClick={() => props.router.push(props.url)} />
+	<ListItem className="amped-sidebar__item" primaryText={props.label} leftIcon={<props.icon />} onClick={() => props.router.push(props.url)} />
 );
 
 export const Sidebar = (props) => (
