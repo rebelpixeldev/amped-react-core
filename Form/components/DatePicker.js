@@ -1,5 +1,7 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
+
 import DatePicker from 'material-ui/DatePicker';
 
 export const AmpedDatePicker = ( { container, mode, name, label, value, formValues, minDate, maxDate, onFieldChange } ) => {
@@ -21,26 +23,26 @@ export const AmpedDatePicker = ( { container, mode, name, label, value, formValu
 }
 
 AmpedDatePicker.propTypes = {
-	container : React.PropTypes.string,
-	formValues : React.PropTypes.any,
-	mode : React.PropTypes.string,
-	name : React.PropTypes.string,
-	label : React.PropTypes.string,
-	minDate : React.PropTypes.instanceOf(Date),
-	maxDate : React.PropTypes.instanceOf(Date),
-	onFieldChange : React.PropTypes.func,
-	value : React.PropTypes.oneOfType([
-		React.PropTypes.string,
-		React.PropTypes.instanceOf(Date)
-	])
+	container       : PropTypes.string,
+	formValues      : PropTypes.any,
+	mode            : PropTypes.string,
+	name            : PropTypes.string,
+	label           : PropTypes.string,
+	minDate         : PropTypes.instanceOf(Date),
+	maxDate         : PropTypes.instanceOf(Date),
+	onFieldChange   : PropTypes.func,
+	value           : PropTypes.oneOfType([
+						PropTypes.string,
+						PropTypes.instanceOf(Date)
+					])
 }
 
 AmpedDatePicker.defaultProps = {
-	container : 'inline',
-	mode : 'portrait',
-	minDate : new Date(),
-	maxDate : null,
-	onFieldChange : () => {}
+	container       : 'inline',
+	mode            : 'portrait',
+	minDate         : new Date(),
+	maxDate         : null,
+	onFieldChange   : () => {}
 }
 
 export default AmpedDatePicker;

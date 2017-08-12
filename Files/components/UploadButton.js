@@ -1,11 +1,13 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
+
 import {LoaderButton} from 'amped-react-core/Form';
 
 export class UploadButton extends React.Component{
 	static propTypes = {
-		uploading : React.PropTypes.bool,
-		onChange : React.PropTypes.func
+		uploading : PropTypes.bool,
+		onChange : PropTypes.func
 	}
 
 	static defaultProps = {

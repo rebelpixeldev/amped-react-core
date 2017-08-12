@@ -1,6 +1,5 @@
 import React from 'react';
-import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
-import Divider from 'material-ui/Divider';
+import {Card} from 'material-ui/Card';
 
 import {Form, Button, LoaderButton} from 'amped-react-core/Form';
 

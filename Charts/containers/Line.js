@@ -19,8 +19,6 @@ export class Line extends React.Component{
 		this.state = {
 			data : []
 		}
-
-		console.log('LINE', this.props);
 	}
 
 	componentDidMount(){
@@ -29,13 +27,11 @@ export class Line extends React.Component{
 				this.setState({
 					rawData : resp.response,
 					data : AmpedChartFactory.prepareForLine(resp.response, this.props.dataKey)
-				}, () => console.log(this.state.data))
+				})
 			})
 	}
 
 	handleSocketCreate(data){
-		console.log(this.props.model, 'CREATED', data);
-
 		const d = data;
 		delete d.data;
 

@@ -1,6 +1,8 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
 
+import PropTypes from 'prop-types';
+
 import { UPDATE_FIELD } from '../actions';
 
 export const Input = ( {type, label, name, value, formValues, onFieldChange} ) => {
@@ -19,6 +21,10 @@ export const Input = ( {type, label, name, value, formValues, onFieldChange} ) =
 			onChange={(evt, newVal) => onFieldChange(name, newVal)}
 			floatingLabelText={label} />
 	);
+}
+
+Input.propTypes = {
+	type : PropTypes.string
 }
 
 Input.defaultProps = {

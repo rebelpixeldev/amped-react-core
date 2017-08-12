@@ -8,9 +8,6 @@ export class Login extends React.Component{
 	render(){
 
 		const {loginFormData, settings, requesting, onSubmit, onRequestStart} = this.props;
-
-		console.log(loginFormData);
-
 		return (
 			<Card className="amped-card amped-login-card" style={{width: 450}}>
 				<div className="amped-login-card--header paper--depth-2">
@@ -46,11 +43,5 @@ export class Login extends React.Component{
 	}
 
 }
-
-// export default Login;
-//
-// export const Login = () => (
-//
-// );
 
 export default Login;

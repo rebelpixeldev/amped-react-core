@@ -1,5 +1,6 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
 import Snackbar from 'material-ui/Snackbar';
 
 export const SnackBar = ( { data } ) => {
@@ -39,16 +40,16 @@ export const SnackBar = ( { data } ) => {
  *
  */
 SnackBar.propTypes = {
-	message : React.PropTypes.string,
-	level : React.PropTypes.oneOf(['info', 'success', 'warning', 'error']),
+	message : PropTypes.string,
+	level : PropTypes.oneOf(['info', 'success', 'warning', 'error']),
 	// @TODO implement
-	action : React.PropTypes.oneOfType([
-		React.PropTypes.bool,
-		React.PropTypes.string,
-		React.PropTypes.func
+	action : PropTypes.oneOfType([
+		PropTypes.bool,
+		PropTypes.string,
+		PropTypes.func
 	]),
-	actionLabel : React.PropTypes.string,
-	actionData : React.PropTypes.any
+	actionLabel : PropTypes.string,
+	actionData : PropTypes.any
 };
 
 SnackBar.defaultProps = {

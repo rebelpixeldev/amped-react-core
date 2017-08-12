@@ -1,12 +1,14 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
+
 export const Text = ( {children, value} ) => (
     <span>{(typeof children === 'undefined' || children === null ? value : children).toString()}</span>
 );
 
 Text.propTypes = {
-	children : React.PropTypes.any,
-	value : React.PropTypes.string
+	children    : PropTypes.any,
+	value       : PropTypes.string
 };
 
 Text.defaultProps = {

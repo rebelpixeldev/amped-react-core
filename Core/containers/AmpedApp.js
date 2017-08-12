@@ -3,8 +3,10 @@ import { browserHistory } from 'react-router';
 import { connect } from 'react-redux'
 
 import { default as AmpedAppComponent } from '../components/AmpedApp'
-import { SET_USER, SET_CONFIG } from '../actions';
+import { SET_USER } from '../actions';
 import { AmpedService } from 'amped-react-core/Core';
+
+import PropTypes from 'prop-types';
 
 
 
@@ -20,7 +22,7 @@ const mapStateToProps = (state) => ({
 export class AmpedApp extends React.Component{
 
 	static propTypes = {
-		safeRoutes : React.PropTypes.array
+		safeRoutes : PropTypes.array
 	};
 
 	static defaultProps = {

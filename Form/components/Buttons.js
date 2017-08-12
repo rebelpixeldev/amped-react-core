@@ -1,5 +1,7 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
+
 import RaisedButton from 'material-ui/RaisedButton';
 import {fullWhite} from 'material-ui/styles/colors';
 import CircularProgress from 'material-ui/CircularProgress';
@@ -31,14 +33,14 @@ export const Button = ( props ) => {
 }
 
 Button.propTypes = {
-	className : React.PropTypes.string,
-	label : React.PropTypes.string,
-	onClick : React.PropTypes.func
+	className   : PropTypes.string,
+	label       : PropTypes.string,
+	onClick     : PropTypes.func
 };
 
 Button.defaultProps = {
-	className : '',
-	onClick : () => {}
+	className   : '',
+	onClick     : () => {}
 };
 
 /**
@@ -70,11 +72,11 @@ export const LoaderButton = ( props ) => {
 }
 
 LoaderButton.propTypes = {
-	loading             : React.PropTypes.bool,
-	label               : React.PropTypes.string,
-	progressSize        : React.PropTypes.number,
-	progressTickness    : React.PropTypes.number,
-	onClick             : React.PropTypes.func
+	loading             : PropTypes.bool,
+	label               : PropTypes.string,
+	progressSize        : PropTypes.number,
+	progressTickness    : PropTypes.number,
+	onClick             : PropTypes.func
 };
 
 LoaderButton.defaultProps = {

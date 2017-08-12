@@ -1,5 +1,6 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import {AmpedService, ampedSocketConnector} from "amped-react-core/Core";
 import { AmpedUploadsfactory } from 'amped-react-core/Files';
@@ -17,7 +18,7 @@ const mapStateToProps = (state) => ({
 class MediaLibrary extends React.Component{
 
 	static propTypes = {
-		perpage : React.PropTypes.number
+		perpage : PropTypes.number
 	}
 
 	static defaultProps = {

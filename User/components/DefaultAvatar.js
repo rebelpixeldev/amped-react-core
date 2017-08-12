@@ -1,5 +1,7 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
+
 import '../style/_default-avatar.scss';
 
 export const DefaultAvatar = ( { user, className, size } ) => {
@@ -30,6 +32,11 @@ export const DefaultAvatar = ( { user, className, size } ) => {
 		<span className={`default-avatar ${className}`} style={style}>{user.display_name[0].toUpperCase()}</span>
     );
 };
+
+DefaultAvatar.propTypes = {
+	className   : PropTypes.string,
+	size        : PropTypes.number
+}
 
 DefaultAvatar.defaultProps = {
 	className : '',

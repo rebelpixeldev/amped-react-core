@@ -1,7 +1,8 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
 import { AmpedLoader } from 'amped-react-core/Common';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import {Card, CardHeader, CardText} from 'material-ui/Card';
 
 
 export const AmpedCard = ( { title, children, loading } ) => (
@@ -19,8 +20,8 @@ export const AmpedCard = ( { title, children, loading } ) => (
 );
 
 AmpedCard.propTypes = {
-	title : React.PropTypes.string,
-	loading : React.PropTypes.bool
+	title   : PropTypes.string,
+	loading : PropTypes.bool
 }
 
 AmpedCard.defaultProps = {

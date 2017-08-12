@@ -14,9 +14,6 @@ export const AmpedLine = ( { data } ) => {
 		{name: 'Page F', uv: 2390, pv: 3800, amt: 2500},
 		{name: 'Page G', uv: 3490, pv: 4300, amt: 2100},
 	];
-	console.log(lineData);
-	console.log(data);
-
 
 	return (
 		<LineChart width={600} height={300} data={data}

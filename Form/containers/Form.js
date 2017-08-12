@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-
+import PropTypes from 'prop-types';
 import { default as FormComponent } from '../components/Form';
 import { Input, HiddenInput, Select, Json, Image, PasswordInput, Switch, DatePicker, Dropdown, CheckboxGroup, RadioButtonGroup, RichTextarea } from 'amped-react-core/Form';
 import { CrudService } from 'amped-react-core/Crud';
@@ -20,11 +20,11 @@ const mapStateToProps = (state) => ({
 export class Form extends React.Component{
 
 	static propType = {
-		name            : React.PropTypes.string.isRequired,
-		onSubmit        : React.PropTypes.func,
-		onRequestStart  : React.PropTypes.func,
-		onSubmitSuccess : React.PropTypes.func,
-		onSubmitError   : React.PropTypes.func
+		name            : PropTypes.string.isRequired,
+		onSubmit        : PropTypes.func,
+		onRequestStart  : PropTypes.func,
+		onSubmitSuccess : PropTypes.func,
+		onSubmitError   : PropTypes.func
 	};
 
 	static defaultProps = {
@@ -186,9 +186,6 @@ export class Form extends React.Component{
 
 		AmpedService[this.props.data.method.toLowerCase()](this.props.data.action, vals)
 			.then((resp) => {
-				console.log('RESPONSE', resp);
-				console.log(this.props.onSubmit);
-				console.log(this.props);
 				this.props.onSubmit(resp);
 				if ( resp.success )
 					this.props.onSubmitSuccess(resp);

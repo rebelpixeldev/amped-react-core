@@ -3,7 +3,6 @@ export class AmpedChartFactory{
 
 	static groupByDate(data){
 		return data.reduce(( ret, entry ) => {
-			console.log(entry);
 			const dateStr = entry.created_at.split('T')[0];
 
 			if ( typeof ret[dateStr] === 'undefined')

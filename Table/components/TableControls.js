@@ -7,6 +7,7 @@ import FlatButton from 'material-ui/FlatButton';
 import FileDownloadFile  from 'material-ui/svg-icons/file/file-download';
 import CloseNavigation  from 'material-ui/svg-icons/navigation/close';
 import { fullWhite, fullBlack, deepPurple500, deepPurple700, grey100} from 'material-ui/styles/colors';
+import PropTypes from 'prop-types';
 
 export const TableControls = ( { perpage, page, total, downloadable, filterValue, onFilterChange, onPageChange, onDownload } ) => {
 	return (
@@ -51,18 +52,18 @@ export const TableControls = ( { perpage, page, total, downloadable, filterValue
 
 
 TableControls.propTypes = {
-	perpage : React.PropTypes.number,
-	page : React.PropTypes.number,
-	total : React.PropTypes.number,
-	onFilterChange : React.PropTypes.func,
-	onPageChange : React.PropTypes.func
+	perpage         : PropTypes.number,
+	page            : PropTypes.number,
+	total           : PropTypes.number,
+	onFilterChange  : PropTypes.func,
+	onPageChange    : PropTypes.func
 }
 
 TableControls.defaultProps = {
-	perpage : 3,
-	page : 1,
-	onFilterChange : () => {},
-	onPageChange : () => {}
+	perpage         : 3,
+	page            : 1,
+	onFilterChange  : () => {},
+	onPageChange    : () => {}
 }
 
 export default TableControls;

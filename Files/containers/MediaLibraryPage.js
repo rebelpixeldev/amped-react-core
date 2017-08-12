@@ -5,7 +5,6 @@ import MediaLibraryComponent from '../components/MediaLibraryPage'
 import { AmpedTransitionPage } from 'amped-react-core/Core';
 
 const mapStateToProps = (state) => ({
-	user : true,
 	settings : state.amped.settings,
 
 });

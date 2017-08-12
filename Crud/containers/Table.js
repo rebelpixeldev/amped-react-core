@@ -7,8 +7,6 @@ import { AmpedService }  from 'amped-react-core/Core/AmpedService';
 import { AmpedTransitionPage, ampedSocketConnector } from 'amped-react-core/Core';
 import { SHOW_CONFIRM, HIDE_CONFIRM } from 'amped-react-core/Alerts/actions';
 
-import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
-
 const mapStateToProps = (state) => ({
 	user : true,
 	settings : state.amped.settings
@@ -63,7 +61,6 @@ class Table extends React.Component{
 	}
 
 	handleSocket(evt, data){
-		console.log('HANDING SOCKET', evt, data);
 		switch(evt){
 			case 'USERS_DELETE':
 				this.refs.tableComponent.wrappedInstance.handleDeleteItem(data.id);

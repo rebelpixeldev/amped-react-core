@@ -1,5 +1,7 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
+
 import { Button } from 'amped-react-core/Form';
 
 export const Form = ( {action, children, content, style, className, submitLabel, onSubmit} ) => (
@@ -23,14 +25,14 @@ export const Form = ( {action, children, content, style, className, submitLabel,
 );
 
 Form.propTypes = {
-	style : React.PropTypes.object,
-	className : React.PropTypes.string,
-	submitLabel : React.PropTypes.string
+	style       : PropTypes.object,
+	className   : PropTypes.string,
+	submitLabel : PropTypes.string
 };
 
 Form.defaultProps = {
-	style : {},
-	className : '',
+	style       : {},
+	className   : '',
 	submitLabel : 'Submit'
 }
 

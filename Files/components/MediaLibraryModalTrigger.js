@@ -1,5 +1,7 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
+
 import { AmpedMediaLibrary } from 'amped-react-core/Files';
 import { LoaderButton } from 'amped-react-core/Form';
 import { SHOW_CONFIRM, HIDE_CONFIRM } from 'amped-react-core/Alerts/actions';
@@ -21,7 +23,7 @@ export const MediaLibraryModalTrigger = ( {onFileSelect, dispatch} ) => {
 };
 
 MediaLibraryModalTrigger.propTypes = {
-	onFilesSelect : React.PropTypes.func
+	onFilesSelect : PropTypes.func
 }
 
 MediaLibraryModalTrigger.defaultProps = {

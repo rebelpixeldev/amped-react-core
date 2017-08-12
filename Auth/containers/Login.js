@@ -4,7 +4,6 @@ import { default as LoginComponent } from '../components/Login';
 import '../styles/_login.scss';
 
 const mapStateToProps = (state) => ({
-	user : true,
 	settings : state.amped.settings,
 	loginFormData : {
 		action: '/api/user/login',
@@ -43,12 +42,10 @@ export class Login extends React.Component{
 		}
 	}
 
-
 	handleFormRequestStart(vals){
 		this.setState({requesting:true});
 		return true;
 	}
-
 
 	handleFormSubmit(resp){
 		this.setState({requesting:false});
@@ -56,7 +53,6 @@ export class Login extends React.Component{
 			localStorage.setItem('amped-token', resp.response);
 			window.location = '/';
 		}
-
 	}
 
 	render(){

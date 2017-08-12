@@ -6,7 +6,6 @@ import { browserHistory } from 'react-router';
 import '../styles/_login.scss';
 
 const mapStateToProps = (state) => ({
-	user : true,
 	settings : state.amped.settings,
 	loginFormData : {
 		action: '/api/user/resetpassword',

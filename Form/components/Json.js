@@ -1,5 +1,7 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
+
 import { Input } from 'amped-react-core/Form';
 
 export const Json = ( { name, value, formValues, onFieldChange } ) => {
@@ -27,10 +29,10 @@ export const Json = ( { name, value, formValues, onFieldChange } ) => {
 };
 
 Json.propTypes = {
-	name : React.PropTypes.string,
-	value : React.PropTypes.object,
-	formValues : React.PropTypes.object,
-	onFieldChange : React.PropTypes.func
+	name            : PropTypes.string,
+	value           : PropTypes.object,
+	formValues      : PropTypes.object,
+	onFieldChange   : PropTypes.func
 };
 
 Json.defaultProps = {

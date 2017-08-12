@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -43,8 +44,6 @@ export const Confirm = ( {data, dispatch, acceptLabel, cancelLabel, onAccept, on
 
 	const style = typeof data.style === 'object' ? data.style : {};
 
-	console.log('STYLE', style);
-
 	return (
 			<Dialog
 				contentStyle={style}
@@ -68,11 +67,11 @@ export const Confirm = ( {data, dispatch, acceptLabel, cancelLabel, onAccept, on
  */
 
 Confirm.propTypes = {
-	message : React.PropTypes.string,
-	acceptLabel : React.PropTypes.string,
-	cancelLabel : React.PropTypes.string,
-	onAccept : React.PropTypes.func,
-	onCancel : React.PropTypes.func
+	message     : PropTypes.string,
+	acceptLabel : PropTypes.string,
+	cancelLabel : PropTypes.string,
+	onAccept    : PropTypes.func,
+	onCancel    : PropTypes.func
 };
 
 Confirm.defaultProps = {

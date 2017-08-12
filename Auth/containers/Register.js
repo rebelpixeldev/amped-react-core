@@ -7,7 +7,6 @@ import {default as RegisterComponent } from '../components/Register';
 import '../styles/_login.scss';
 
 const mapStateToProps = (state) => ({
-	user : true,
 	settings : state.amped.settings,
 	loginFormData : {
 		action: '/api/user/register',
@@ -55,8 +54,6 @@ export class Register extends React.Component{
 	}
 
 	handleFormSubmit(resp){
-		console.log('HANDLING FORM');
-		console.log(resp);
 		this.setState({requesting:false});
 		if ( resp.success )
 			browserHistory.push(`/login/${resp.response}`);

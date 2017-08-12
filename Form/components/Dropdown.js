@@ -1,5 +1,7 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
+
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 
@@ -24,9 +26,9 @@ export const Dropdown = ( {name, label, value, formValues, options, minDate, max
 }
 
 Dropdown.propTypes = {
-	label : React.PropTypes.string,
-	name : React.PropTypes.string.isRequired,
-	onFieldChange : React.PropTypes.func
+	label           : PropTypes.string,
+	name            : PropTypes.string.isRequired,
+	onFieldChange   : PropTypes.func
 }
 
 Dropdown.defaultProps = {

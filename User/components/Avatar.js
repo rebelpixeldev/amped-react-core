@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { default as MaterialAvatar } from 'material-ui/Avatar';
+import PropTypes from 'prop-types';
 
 import { DefaultAvatar } from './DefaultAvatar';
 
@@ -22,9 +23,17 @@ export const Avatar = ( {user, showUsername, size} ) => {
 	);
 }
 
+Avatar.propTypes = {
+	showUsername    : PropTypes.oneOfType([
+						PropTypes.bool,
+						PropTypes.func
+					]),
+	size            : PropTypes.number
+}
+
 Avatar.defaultProps = {
-	showUsername : true,
-	size : 40
+	showUsername    : true,
+	size            : 40
 }
 
 export default Avatar;

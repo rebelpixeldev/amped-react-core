@@ -16,8 +16,6 @@ export class SetPassword extends React.Component{
 		super(props);
 
 		this.props = props;
-		console.log(this.props);
-
 		this.state = {
 			loginFormData : {
 				action: '/api/user/setpassword',

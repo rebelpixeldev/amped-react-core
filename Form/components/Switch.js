@@ -1,5 +1,6 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
 import Toggle from 'material-ui/Toggle';
 
 export const Switch = ( { label, name, onFieldChange } ) => (
@@ -11,9 +12,9 @@ export const Switch = ( { label, name, onFieldChange } ) => (
 );
 
 Switch.propTypes = {
-	label : React.PropTypes.string,
-	name : React.PropTypes.string.isRequired,
-	onFieldChange : React.PropTypes.func
+	label           : PropTypes.string,
+	name            : PropTypes.string.isRequired,
+	onFieldChange   : PropTypes.func
 }
 
 Switch.defaultProps = {

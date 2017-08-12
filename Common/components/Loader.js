@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import CircularProgress from 'material-ui/CircularProgress';
 
 import '../styles/loader.scss';
@@ -12,11 +12,21 @@ export const AmpedLoader = ( { loading, label, size, thickness } ) => (
 	</div>
 )
 
+AmpedLoader.propTypes = {
+	size        : PropTypes.number,
+	thickness   : PropTypes.number,
+	loading     : PropTypes.oneOfType([
+					PropTypes.bool,
+					PropTypes.func
+				]),
+	label       : PropTypes.string
+}
+
 AmpedLoader.defaultProps = {
-	size : 40,
-	thickness : 3,
-	loading : false,
-	label : ''
+	size        : 40,
+	thickness   : 3,
+	loading     : false,
+	label       : ''
 }
 
 export default AmpedLoader;

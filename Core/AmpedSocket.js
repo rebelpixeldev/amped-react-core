@@ -14,7 +14,6 @@ export class AmpedSocket{
 	}
 
 	static connect(){
-		console.log('CONNECtING');
 		if ( this.socket === null && AmpedStorage.getToken() !== null ){
 			this.socket = io.connect(this._store.getState().amped.settings.urls.socket.domain, {
 				query : AmpedUtil.objectToQueryString({

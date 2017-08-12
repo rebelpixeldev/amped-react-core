@@ -8,7 +8,6 @@ import '../styles/_upload-button.scss';
 import { AmpedService } from 'amped-react-core/Core';
 
 const mapStateToProps = (state) => ({
-	user : true,
 	settings : state.amped.settings,
 
 });
@@ -37,7 +36,6 @@ export class UploadButton extends React.Component{
 		AmpedService.post('/uploads/upload', body)
 			.then(( resp ) => {
 				this.setState({uploading : false});
-			    console.log('UPLOAD' , resp);
 			})
 
 		// this.filesService.uploadFile(body)

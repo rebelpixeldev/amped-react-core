@@ -3,9 +3,6 @@ import React from 'react';
 import {AmpedUploadButton, AmpedMediaLibraryModalTrigger} from 'amped-react-core/Files';
 
 export const Image = ({type = 'text', label, name, value, onFieldChange, formValues, ...props}) => {
-
-	console.log(formValues);
-	console.log(value);
 	return (
 		<div className="image-form-element">
 			<label htmlFor="" className="image-form-element--label">{label}</label>

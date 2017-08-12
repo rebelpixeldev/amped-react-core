@@ -1,7 +1,5 @@
 import React from 'react';
-import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
-import Divider from 'material-ui/Divider';
-import LinearProgress from 'material-ui/LinearProgress';
+import {Card} from 'material-ui/Card';
 
 import {Form, Button, LoaderButton} from 'amped-react-core/Form';
 
@@ -34,11 +32,5 @@ export class Register extends React.Component{
 	}
 
 }
-
-// export default Login;
-//
-// export const Login = () => (
-//
-// );
 
 export default Register;

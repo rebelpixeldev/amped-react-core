@@ -19,11 +19,6 @@ export const Sidebar = (props) => (
 			{ props.navigation.map(( item, i ) => (
 				<NavItem key={i} {...item} {...props} />
 			) ) }
-
-			{/*<ListItem primaryText="Starred" leftIcon={<ActionGrade />} />*/}
-			{/*<ListItem primaryText="Sent mail" leftIcon={<ContentSend />} />*/}
-			{/*<ListItem primaryText="Drafts" leftIcon={<ContentDrafts />} />*/}
-			{/*<ListItem primaryText="Inbox" leftIcon={<ContentInbox />} />*/}
 		</List>
 	</div>
 );

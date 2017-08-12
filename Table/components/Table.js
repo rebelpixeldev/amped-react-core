@@ -2,6 +2,7 @@ import React from 'react';
 import { AmpedTableActionBar, AmpedTableControls } from 'amped-react-core/Table';
 import { AmpedLoader } from 'amped-react-core/Common';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
+import PropTypes from 'prop-types';
 
 export const AmpedTable = ( {
 	headers, data, modifiedData, cellMap, tableProps,
@@ -91,11 +92,11 @@ export const AmpedTable = ( {
  */
 
 AmpedTable.propTypes = {
-	headers : React.PropTypes.object,
-	data    : React.PropTypes.array,
-	cellMap : React.PropTypes.func,
-	onSort  : React.PropTypes.func,
-	loading : React.PropTypes.bool
+	headers : PropTypes.object,
+	data    : PropTypes.array,
+	cellMap : PropTypes.func,
+	onSort  : PropTypes.func,
+	loading : PropTypes.bool
 };
 
 AmpedTable.defaultProps = {

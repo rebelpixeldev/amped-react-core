@@ -10,10 +10,6 @@ const style = {
 }
 
 export const TableActionBar = ( { items } ) => {
-	// console.log('ITTEMS');
-	// console.log(items);
-	// if ( typeof items === 'undefined' )
-	// 	items = [];
 	return (
 		<div className={`amp-table-action-bar ${items.length > 0 ? 'amp-table-action-bar--active' : ''} `}>
 			<div className="amp-push-it"></div>
