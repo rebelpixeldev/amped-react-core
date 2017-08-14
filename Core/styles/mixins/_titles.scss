@@ -1,0 +1,12 @@
+@mixin card-title($color : rgba(33, 33, 33, 0.87)){
+  color: $color;
+  display: block;
+  font-size: 1.6rem;
+}
+
+
+@mixin card-sub-title($color : rgba(33, 33, 33, 0.87)){
+  color: $color;
+  display: block;
+  font-size: 1.2rem;
+}

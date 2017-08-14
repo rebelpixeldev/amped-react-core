@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
-import { default as AmpedTableComponent } from '../components/Table'
+import { default as AmpedTableComponent } from '../components/Table';
+import { ImportExportData } from 'amped-react-core/Common';
 import { TextCell, DateFromCell, ImageCell } from 'amped-react-core/Table/Cells';
+import { SHOW_MODAL } from 'amped-react-core/Alerts/actions';
 import { ITEM_SELECTED, ON_CANCEL, ON_DELETE, ON_EDIT } from '../actions';
 
 import IconMenu from 'material-ui/IconMenu';
@@ -35,7 +37,8 @@ class AmpedTable extends React.Component{
 		downloadable        : PropTypes.bool,
 		getData             : PropTypes.func.isRequired,
 		materialTableProps  : PropTypes.object,
-		menuItems           : PropTypes.array
+		menuItems           : PropTypes.array,
+		model               : PropTypes.string
 	}
 	static defaultProps = {
 		materialTableProps : {},
@@ -59,6 +62,10 @@ class AmpedTable extends React.Component{
 			data : [],
 			headers : {}
 		}
+	}
+
+	get model(){
+		return this.props.params.model || this.props.model;
 	}
 
 	/**
@@ -95,6 +102,12 @@ class AmpedTable extends React.Component{
 									.filter(( val ) => val !== 'created_at' && val !== 'updated_at')
 				});
 			});
+	}
+
+	componentWillReceiveProps(newProps){
+		if ( typeof this.props.params.model === 'undefined' && typeof this.props.model === 'undefined' )
+			throw new Error('There is no model associated with the table. You need to ensure that a model is passed either through the url or through the components props');
+		this.props = newProps;
 	}
 
 	/**
@@ -244,34 +257,24 @@ class AmpedTable extends React.Component{
 	 * @TODO need to set the filename based on a model name... also have to pass the model/filename in through the props
 	 */
 	handleTableDownload(){
-		const headers = Object.keys(this.state.headers);
+		console.log(this);
 
-		let csv = headers.slice(0) + '\n';
+		const downloadableContent = {
+			data : this.state.modifiedData,
+			headers : this.state.headers
+		};
 
-		csv += this.state.modifiedData.map(( item ) => {
-		    return headers.map(( header ) => {
-		    	const val = item[this.state.headers[header]];
-		    	return typeof val === 'string' ? val : `"${JSON.stringify(val)}"`;
-		    }).join(',');
-		}).join('\n');
 
-		let a = document.createElement('a');
+		this.props.dispatch({
+			type : SHOW_MODAL,
+			opts : {
+				content : (
+					<ImportExportData model={this.model}
+					                  downloadableContent={downloadableContent} />
+				),
 
-		if (navigator.msSaveBlob) { // IE10
-			navigator.msSaveBlob(new Blob([content], {
-				type: mimeType
-			}), fileName);
-		} else if (URL && 'download' in a) { //html5 A[download]
-			a.href = URL.createObjectURL(new Blob([csv], {
-				type: 'text/csv;encoding:utf-8'
-			}));
-			a.setAttribute('download', 'need-to-pass-model.csv');
-			document.body.appendChild(a);
-			a.click();
-			document.body.removeChild(a);
-		} else {
-			location.href = 'data:application/octet-stream,' + encodeURIComponent(content); // only this mime type is supported
-		}
+			}
+		})
 	}
 
 	/**

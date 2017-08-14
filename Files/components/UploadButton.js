@@ -7,11 +7,15 @@ import {LoaderButton} from 'amped-react-core/Form';
 export class UploadButton extends React.Component{
 	static propTypes = {
 		uploading : PropTypes.bool,
+		multiple : PropTypes.bool,
+		inputName : PropTypes.string,
 		onChange : PropTypes.func
 	}
 
 	static defaultProps = {
 		uploading : false,
+		multiple : true,
+		inputName : 'files[]',
 		onChange : ()=>{}
 	}
 
@@ -29,8 +33,8 @@ export class UploadButton extends React.Component{
 					<LoaderButton label="Upload" loading={this.props.uploading} />
 					<input ref="fileUpload"
 					       className="amp-upload-btn__input "
-					       name="files[]"
-					       multiple
+					       name={this.props.inputName}
+					       multiple={this.props.multiple}
 					       type="file"
 					       onChange={() => this.props.onChange(this.refs.fileUpload) }
 					/>

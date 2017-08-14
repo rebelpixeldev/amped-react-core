@@ -21,6 +21,26 @@ export class AmpedUtil{
 		return tmp.textContent || tmp.innerText || "";
 	}
 
+	static download(content, filename, mime){
+		let a = document.createElement('a');
+
+		if (navigator.msSaveBlob) { // IE10
+			navigator.msSaveBlob(new Blob([content], {
+				type: mimeType
+			}), fileName);
+		} else if (URL && 'download' in a) { //html5 A[download]
+			a.href = URL.createObjectURL(new Blob([content], {
+				type: mime // 'text/csv;encoding:utf-8'
+				}));
+				a.setAttribute('download', filename);
+				document.body.appendChild(a);
+				a.click();
+				document.body.removeChild(a);
+			} else {
+				location.href = 'data:application/octet-stream,' + encodeURIComponent(content); // only this mime type is supported
+			}
+	}
+
 }
 
 export default AmpedUtil;

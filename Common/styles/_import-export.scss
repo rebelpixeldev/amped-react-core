@@ -1,0 +1,48 @@
+@import '../../Core/styles/variables';
+@import '../../Core/styles/mixins/titles';
+
+.import-export{
+  width:100%;
+  &__header{
+    display:flex; justify-content: space-between; padding-bottom:$grid-gutter-width/2; align-items:center;
+  }
+
+  &__title{@include card-title;}
+  &__tabs{
+    & > div:first-child{
+      background-color:transparent !important; position:relative; z-index:0; text-transform:none;
+      button{
+        color:#333 !important;
+        background-color:#EDE7F6 !important; //deepPurple50
+        transition:background-color 0.3s ease-out, color 0.3s ease-out;
+        &:hover{
+          background-color: $brand-primary !important;
+          color:#fff !important;
+        }
+      }
+    }
+    &> div:nth-child(2){
+      div{background-color:$brand-primary !important;}
+    }
+  }
+
+  &__tab{
+    padding-top:$grid-gutter-width/2;
+    &__title{@include card-sub-title;}
+  }
+}
+
+.import-export__upload{
+  width:100%; height:35vh; border:dashed 2px #999; display:flex; justify-content: center; align-items: center; flex-direction:column;
+  &__desc{color:#999; font-size:0.8rem; margin:0;  }
+  &__link{text-decoration:underline; cursor:pointer;}
+  &__or{
+    color:#999; font-size:0.7rem; display:inline-block; position:relative;
+    span{background-color:#fff; display:inline-block; position:relative; z-index:2; padding:$grid-gutter-width/2 $grid-gutter-width/4}
+    &:after{
+      content:' '; height:1px; background:#999; position:absolute; top:50%; left:-100%; width:300%; z-index:1;
+    }
+
+  }
+  &__btn{}
+}

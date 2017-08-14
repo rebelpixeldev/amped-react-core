@@ -14,7 +14,6 @@ export const AmpedTable = ( {
 		<span style={{position : 'relative'}}>
 			{ headers && data && !loading ? (
 					<span>
-					{/*<AmpedTableActionBar />*/}
 					<AmpedTableControls
 						total={modifiedData.length}
 						filterValue={filterValue}
@@ -64,10 +63,6 @@ export const AmpedTable = ( {
 
 
 /**
- * @TODO Implement search filter
- * @TODO Implement download content functionality
- *
- *
  * Displays a table with sortable columns, search filter and download content
  *
  * headers { object } - An object of what the headers should be. The key is what appears as the header and the value

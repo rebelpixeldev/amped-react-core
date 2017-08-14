@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { SnackBar, Confirm } from 'amped-react-core/Alerts';
+import { SnackBar, Confirm, Modal } from 'amped-react-core/Alerts';
 import { AmpedLoader } from 'amped-react-core/Common';
 import {Topbar, Sidebar} from 'amped-react-core/Layout'
 import { AmpedTransitionPage } from 'amped-react-core/Core';
@@ -30,6 +30,7 @@ export const AmpedApp = ( { children, setup, user } ) => {
 			</div>
 			<SnackBar />
 		    <Confirm />
+		    <Modal />
 		    {setup}
 		    <div className="amped-app--loader">
 		        <AmpedLoader loading={!setup} />

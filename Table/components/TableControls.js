@@ -6,6 +6,7 @@ import FlatButton from 'material-ui/FlatButton';
 
 import FileDownloadFile  from 'material-ui/svg-icons/file/file-download';
 import CloseNavigation  from 'material-ui/svg-icons/navigation/close';
+import ImportExportCommunication  from 'material-ui/svg-icons/communication/import-export';
 import { fullWhite, fullBlack, deepPurple500, deepPurple700, grey100} from 'material-ui/styles/colors';
 import PropTypes from 'prop-types';
 
@@ -18,7 +19,7 @@ export const TableControls = ( { perpage, page, total, downloadable, filterValue
 					hoverColor={deepPurple700}
 					style={{width:40, minWidth:40}}
 					onClick={onDownload}
-					icon={<FileDownloadFile style={{width:20}} color={fullWhite} />}
+					icon={<ImportExportCommunication style={{width:20}} color={fullWhite} />}
 				/>
 			)}
 				<div className="amped-pagination">
