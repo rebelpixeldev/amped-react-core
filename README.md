@@ -2,7 +2,7 @@
 
 This project is for all the core frontend functionality to be used within the Amped Framework. Each of the directories can be considered modules which each contain their own container, components, styles, factories, routes and anything else that would be related to the name of the module.
 
-Currently this project does not by itself and should be included into a [amped-react-boilerplat](https://github.com/rebelpixeldev/amped-react-boilerplate) project
+Currently this project does not by itself and should be included into a [amped-react-boilerplate](https://github.com/rebelpixeldev/amped-react-boilerplate) project
 
 ### Modules
 * Alerts - Global alert components such as a confirm message, modal and snackbar
