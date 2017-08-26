@@ -4,6 +4,12 @@ This project is for all the core frontend functionality to be used within the Am
 
 Currently this project does not by itself and should be included into a [amped-react-boilerplate](https://github.com/rebelpixeldev/amped-react-boilerplate) project
 
+**A demo can be found at: [http://demo.rebelpixel.ca/](http://demo.rebelpixel.ca/)**
+
+**Username:** demo@demo.com
+
+**Password:** 123
+
 ### Modules
 * Alerts - Global alert components such as a confirm message, modal and snackbar
 * Auth - All the components and logic that has to do with logging in or registering a user
