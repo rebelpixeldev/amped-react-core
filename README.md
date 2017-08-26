@@ -16,3 +16,8 @@ Currently this project does not by itself and should be included into a [amped-r
 * Layout - Global components that will go into the layout like a Topbar and Sidebar. *Currently the sidebar is static but future releases will make is dynamic based on users role*
 * Table - A customizable table and table components
 * User - All components having to do with displaying the users data and also includes all of the users default routes like the users profile.
+
+### Related Projects
+* [Amped react boilerplate](https://github.com/rebelpixeldev/amped-react-boilerplate)
+* [Amped api boilerplate](https://github.com/rebelpixeldev/amped-api-boilerplate)
+* [Amped api](https://github.com/rebelpixeldev/amped-api)
