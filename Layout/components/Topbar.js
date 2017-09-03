@@ -12,12 +12,13 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
 export const Topbar = ( props ) => {
 	return (
-		<AppBar
-			zDepth={2}
-			title={props.settings.site.name}
-			onTitleTouchTap={() => props.router.push(`/`)}
-			iconElementRight={props.user && Object.keys(props.user).length > 0 ? <LoggedIn {...props} /> : <Login {...props} />}
-		/>
+			<AppBar
+				zDepth={2}
+				className="amped-topbar"
+				title={props.settings.site.name}
+				onTitleTouchTap={() => props.router.push(`/`)}
+				iconElementRight={props.user && Object.keys(props.user).length > 0 ? <LoggedIn {...props} /> : <Login {...props} />}
+			/>
 	);
 }
 
@@ -33,12 +34,12 @@ export class Login extends Component {
 
 export const LoggedIn = (props) => {
 	return (
-		<div className="amp-topbar">
-			<span className="amp-topbar__avatar" onClick={() => props.router.push(`/user/profile`)}>
+		<div className="amped-topbar__actions">
+			<span className="amped-topbar__avatar" onClick={() => props.router.push(`/user/profile`)}>
 				<AmpedAvatar {...props} />
 			</span>
 			<IconMenu
-				className="amp-topbar__user-menu"
+				className="amped-topbar__user-menu"
 				iconButtonElement={
 					<IconButton><MoreVertIcon /></IconButton>
 				}

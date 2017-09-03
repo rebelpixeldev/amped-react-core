@@ -6,7 +6,7 @@ import '../styles/_pagination.scss';
 
 export const AmpedPagination = ( { total, activePage, perpage, pageRangeDisplayed, onChange } ) => {
     return (
-	    <div className="amp-pagination">
+	    <div className="amped-pagination">
 		    {total > perpage && (
 			    <Pagination
 				    pageRangeDisplayed={pageRangeDisplayed}

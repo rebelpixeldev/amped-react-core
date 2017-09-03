@@ -1,0 +1,7 @@
+@import '../../Core/styles/variables';
+
+.amped-content{
+  margin-left:$sidebar-width;
+  margin-top:$topbar-height;
+  width:100%; min-height:calc(100vh - #{$topbar-height})
+}

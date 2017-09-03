@@ -85,29 +85,42 @@ class AmpedTable extends React.Component{
 	 *	}
 	 */
 	componentDidMount(){
-		this.props.getData()
-			.then(([data, headers]) => {
-
-				this.setState({
-					filterValue : '',
-					sortOrder : -1,
-					sortColumn : null,
-					loading : false,
-					sourceData : data.response,
-					modifiedData : data.response,
-					data : this.paginateData(data.response),
-					headers : headers.response,
-					headersVals : Object.keys(headers.response)
-									.map(( key ) => headers.response[key])
-									.filter(( val ) => val !== 'created_at' && val !== 'updated_at')
-				});
-			});
+		this.getTableData();
 	}
 
 	componentWillReceiveProps(newProps){
+		// console.log('RECIEVING PROPS', newProps);
 		if ( typeof this.props.params.model === 'undefined' && typeof this.props.model === 'undefined' )
 			throw new Error('There is no model associated with the table. You need to ensure that a model is passed either through the url or through the components props');
 		this.props = newProps;
+		this.getTableData();
+	}
+
+	/**
+	 * Gets the data to display in the table and sets the state variables
+	 */
+	getTableData(){
+		this.setState((  ) => {
+		    return { loading : true }
+		}, (  ) => {
+			this.props.getData()
+				.then(([data, headers]) => {
+					this.setState({
+						filterValue : '',
+						sortOrder : -1,
+						sortColumn : null,
+						loading : false,
+						sourceData : data.response,
+						modifiedData : data.response,
+						data : this.paginateData(data.response),
+						headers : headers.response,
+						headersVals : Object.keys(headers.response)
+							.map(( key ) => headers.response[key])
+							.filter(( val ) => val !== 'created_at' && val !== 'updated_at')
+					});
+				});
+		})
+
 	}
 
 	/**
@@ -257,8 +270,6 @@ class AmpedTable extends React.Component{
 	 * @TODO need to set the filename based on a model name... also have to pass the model/filename in through the props
 	 */
 	handleTableDownload(){
-		console.log(this);
-
 		const downloadableContent = {
 			data : this.state.modifiedData,
 			headers : this.state.headers

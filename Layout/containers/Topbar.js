@@ -5,7 +5,7 @@ import { default as TopbarComponent } from '../components/Topbar'
 
 import { AmpedStorage } from 'amped-react-core/Core';
 
-import '../style/_topbar.scss';
+import '../styles/_topbar.scss';
 
 const mapStateToProps = (state) => ({
 	user : state.amped.user,

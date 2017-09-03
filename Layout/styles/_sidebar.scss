@@ -1,0 +1,40 @@
+@import '../../Core/styles/variables';
+@import '../../Core/styles/mixins/utils';
+
+.amped-sidebar{
+  height:calc(100vh - #{$topbar-height}); width:$sidebar-width; background:$sidebar-background; position:fixed; top:0; margin-top:$topbar-height; overflow:auto;
+  div div:last-child .amped-sidebar__item{border-bottom:none !important}
+  &__title{
+    color:$sidebar-title-color !important; background:$sidebar-title-background !important;
+  }
+  &__item{
+    @include transition(background-color);
+    border-bottom:none !important;
+    background:$sidebar-item-background !important;
+    &.active{
+      border-right:solid 5px $sidebar-item-active-border-color !important;
+    }
+    &:hover{
+      background: $sidebar-item-hover-background !important;
+      div div {color: $sidebar-item-hover-color !important;}
+      svg { fill: $sidebar-item-hover-color !important }
+    }
+    &> div{
+
+    }
+    div div div{
+      @include transition(color);
+      color:$sidebar-item-color !important;
+
+    }
+    svg{
+      @include transition(color);
+      fill:$sidebar-item-color !important; width:18px !important; height:18px !important;
+    }
+  }
+
+  padding-bottom:30px;
+  &__last_updated{
+    height:30px; position:absolute; bottom:0; left:0; width:100%; color:#fff; background:$sidebar-background; display:flex; align-items:center; padding:5px; font-size:10px !important; font-style:italic;
+  }
+}

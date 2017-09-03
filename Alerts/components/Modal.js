@@ -2,7 +2,9 @@ import React from 'react';
 
 import Dialog from 'material-ui/Dialog';
 
-export const Modal = ( { data } ) => {
+import { HIDE_MODAL } from '../actions';
+
+export const Modal = ( { data, dispatch } ) => {
 
 
 	if ( data === null || data.opts === null )
@@ -10,12 +12,14 @@ export const Modal = ( { data } ) => {
 
 	const {
 			content = (<div>You have not passed any content for the modal. Pass it with data.content.</div>),
-			onClose = ()=>{}
+			onClose = ()=>{
+				dispatch({type : HIDE_MODAL });
+			}
 		} = data.opts;
 
 	return (
 		<Dialog
-			modal={true}
+			modal={false}
 			open={data !== null}
 			onRequestClose={onClose}>
 			<div>

@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 import { AmpedLoader } from 'amped-react-core/Common';
 import {Card, CardHeader, CardText} from 'material-ui/Card';
 
+import '../styles/_card.scss';
 
 export const AmpedCard = ( { title, children, loading } ) => (
-	<Card>
+	<Card className="amped-card">
 		{title && (<CardHeader
 			titleStyle={{fontSize:'1.6rem'}}
 			style={{paddingBottom:0}}

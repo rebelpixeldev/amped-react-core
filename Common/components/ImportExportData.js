@@ -12,7 +12,7 @@ import { grey200, grey400, grey600} from 'material-ui/styles/colors';
 export const ImportExportData = ( { model, data, tabValue, importTableHeaders, importTableValues, onImportUpload, onTabChange, onGetTemplate } ) => (
     <div className="import-export__container">
 	    <div className="import-export__header">
-		    <div className="import-export__title">Import</div>
+		    <div className="import-export__title">Import / Export</div>
 
 		    <RaisedButton
 			    className="import-export__download-btn"

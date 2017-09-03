@@ -5,5 +5,27 @@ $brand-primary:rgb(103, 58, 183);
 $amp-topbar-height:58px;
 $grid-gutter-width:30px;
 
+// Animations
+$transition-duration:0.3s;
+$transition-ease:ease-out;
+
+
 // Type
 $card-title-size : 1.5rem;
+
+// Topbar
+$topbar-height:55px;
+
+// Sidebar
+$sidebar-width:250px;
+$sidebar-background:#333;
+
+$sidebar-item-active-border-color:lighten($brand-primary, 20%);
+
+$sidebar-item-border-bottom:#444;
+$sidebar-item-color:#ddd;
+$sidebar-title-color:#ccc;
+$sidebar-title-background:lighten($sidebar-background, 2%);
+$sidebar-item-background:transparent;
+$sidebar-item-hover-color:#eee;
+$sidebar-item-hover-background:#000;

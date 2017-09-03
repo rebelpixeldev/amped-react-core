@@ -7,9 +7,7 @@ import { SHOW_SNACK_BAR, HIDE_SNACK_BAR } from 'amped-react-core/Alerts/actions'
 export class Table extends React.Component{
 	render(){
 		return (
-			<AmpedCard title="Hey">
-				<AmpedTable {...this.props} menuItems={this.props.rowMenuItems}  />
-			</AmpedCard>
+			<AmpedTable {...this.props} menuItems={this.props.rowMenuItems}  />
 		);
 	}
 }

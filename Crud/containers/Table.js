@@ -1,10 +1,11 @@
 import React  from 'react';
+import { propTypes } from 'prop-types';
 import { connect } from 'react-redux'
 
 import { AmpedTable } from 'amped-react-core/Table';
 import { AmpedCard } from 'amped-react-core/Common';
 import { AmpedService }  from 'amped-react-core/Core/AmpedService';
-import { AmpedTransitionPage, ampedSocketConnector } from 'amped-react-core/Core';
+import { AmpedTransitionPage, ampedSocketConnector, AmpedUtil } from 'amped-react-core/Core';
 import { SHOW_CONFIRM, HIDE_CONFIRM } from 'amped-react-core/Alerts/actions';
 
 const mapStateToProps = (state) => ({
@@ -12,21 +13,26 @@ const mapStateToProps = (state) => ({
 	settings : state.amped.settings
 });
 
-
 class Table extends React.Component{
 	
-
 	constructor(props){
 		super(props);
 		this.props = props;
 		this.state = {
-			model : typeof this.props.model === 'undefined' ? this.props.params.model : this.props.model,
+			model : this.getModelName(this.props),
 			loading : true,
 			rowMenuItems : [
 				{ label : 'Edit',  onClick : this.handleMenuItemEditClick.bind(this) },
 				{ label : 'Delete',  onClick : this.handleMenuItemDeleteClick.bind(this) }
 			]
 		}
+	}
+
+	componentWillReceiveProps(newProps){
+		console.log('CRUD TABLE GOT EM', newProps);
+		this.props = newProps;
+		this.setState((  ) => ( { model: this.getModelName(newProps) } ));
+		// this.getData();
 	}
 
 	getData(){
@@ -36,6 +42,11 @@ class Table extends React.Component{
 			AmpedService.get(`/api/${this.state.model}/tableHeaders`)
 		])
 	}
+
+	getModelName(props){
+		return typeof props.model === 'undefined' ? props.params.model : props.model;
+	}
+
 
 	getCellComponent(){
 
@@ -69,9 +80,10 @@ class Table extends React.Component{
 	}
 	
 	render(){
+			const title = typeof this.state.model !== 'undefined' ? AmpedUtil.capitalize(this.state.model) : '';
 
 		return (
-			<AmpedCard title='Crud Title'>
+			<AmpedCard title={title}>
 				<AmpedTable ref="tableComponent" {...this.props} {...this.state} menuItems={this.state.rowMenuItems} getData={this.getData.bind(this)}  />
 			</AmpedCard>
 		)

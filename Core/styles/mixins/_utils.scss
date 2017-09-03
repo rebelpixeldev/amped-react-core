@@ -1,0 +1,6 @@
+@import '../_variables.scss';
+
+//@TODO make each param a list to fulfill multiple animation properties
+@mixin transition($prop, $duration:$transition-duration, $ease:$transition-ease){
+  transition:$prop, $duration, $ease;
+}
