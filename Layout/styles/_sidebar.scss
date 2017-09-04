@@ -2,7 +2,7 @@
 @import '../../Core/styles/mixins/utils';
 
 .amped-sidebar{
-  height:calc(100vh - #{$topbar-height}); width:$sidebar-width; background:$sidebar-background; position:fixed; top:0; margin-top:$topbar-height; overflow:auto;
+  height:calc(100vh - #{$topbar-height}); width:$sidebar-width; background:$sidebar-background; position:fixed; top:0; margin-top:$topbar-height - 8px; overflow:auto;
   div div:last-child .amped-sidebar__item{border-bottom:none !important}
   &__title{
     color:$sidebar-title-color !important; background:$sidebar-title-background !important;

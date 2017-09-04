@@ -1,71 +1,81 @@
 import React from 'react';
 import { browserHistory } from 'react-router';
 import { connect } from 'react-redux'
-
-import { default as AmpedAppComponent } from '../components/AmpedApp'
-import { SET_USER } from '../actions';
-import { AmpedService } from 'amped-react-core/Core';
-
 import PropTypes from 'prop-types';
 
+import { default as AmpedAppComponent } from '../components/AmpedApp'
+import { AmpedService } from '../AmpedService';
+import {Topbar as AmpedTopbar, Sidebar as AmpedSidebar} from 'amped-react-core/Layout'
+
+import { SET_USER } from '../actions';
+
+console.log(AmpedService);
 
 
 import '../styles/_core.scss';
 
-const mapStateToProps = (state) => ({
-	user : state.amped.user,
-	settings : state.amped.settings,
 
-});
+export function AmpedApp(TopbarComponent = AmpedTopbar, SidebarComponent = AmpedSidebar){
+	class AmpedAppContainer extends React.Component{
 
+		static propTypes = {
+			safeRoutes : PropTypes.array
+		};
 
-export class AmpedApp extends React.Component{
+		static defaultProps = {
+			safeRoutes : []
+		};
 
-	static propTypes = {
-		safeRoutes : PropTypes.array
-	};
+		constructor(props){
+			super(props);
+			this.state = {
+				setup : false
+			}
+		}
+		componentDidMount(){
+			console.log(AmpedService.getUser());
+			AmpedService.getUser()
+				.then(( user ) => {
+					if ( typeof user.id === 'undefined' ){
+						if ( this.getSafeRoutes().indexOf(browserHistory.getCurrentLocation().pathname) === -1 &&
+							this.getSafeRoutes().indexOf(browserHistory.getCurrentLocation().pathname.split('/')[1]) === -1 )
+						// this.setState({setup: true});
+							browserHistory.push('/login');
+					} else {
+						this.props.dispatch({ type: SET_USER, user: user })
+					}
+					this.setState({setup: true});
+				})
+		}
 
-	static defaultProps = {
-		safeRoutes : []
-	};
+		render(){
+			return (
+				<AmpedAppComponent {...this.props}
+				                   {...this.state}
+				                   TopbarComponent={TopbarComponent}
+				                   SidebarComponent={SidebarComponent}/>
+			)
+		}
 
-	constructor(props){
-		super(props);
-		this.state = {
-			setup : false
+		get defaultSafeRoutes(){
+			return ['/login', '/signup', '/register', '/resetpassword', 'setpassword'];
+		}
+
+		getSafeRoutes(){
+			return [...this.props.safeRoutes, ...this.defaultSafeRoutes];
 		}
 	}
-	componentDidMount(){
-		AmpedService.getUser()
-			.then(( user ) => {
-				if ( typeof user.id === 'undefined' ){
-					if ( this.getSafeRoutes().indexOf(browserHistory.getCurrentLocation().pathname) === -1 &&
-						this.getSafeRoutes().indexOf(browserHistory.getCurrentLocation().pathname.split('/')[1]) === -1 )
-						// this.setState({setup: true});
-						browserHistory.push('/login');
-				} else {
-					this.props.dispatch({ type: SET_USER, user: user })
-				}
-				this.setState({setup: true});
-			})
-	}
 
-	render(){
-		return (
-			<AmpedAppComponent {...this.props} {...this.state}/>
-		)
-	}
+	const mapStateToProps = (state) => ({
+		user : state.amped.user,
+		settings : state.amped.settings,
 
-	get defaultSafeRoutes(){
-		return ['/login', '/signup', '/register', '/resetpassword', 'setpassword'];
-	}
+	});
 
-	getSafeRoutes(){
-		return [...this.props.safeRoutes, ...this.defaultSafeRoutes];
-	}
+
+	return connect(mapStateToProps, null, null, {
+		withRef : true
+	})(AmpedAppContainer);
 }
 
-
-export default connect(mapStateToProps, null, null, {
-	withRef : true
-})(AmpedApp);
+export default AmpedApp;

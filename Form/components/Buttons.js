@@ -6,7 +6,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import {fullWhite} from 'material-ui/styles/colors';
 import CircularProgress from 'material-ui/CircularProgress';
 
-import '../styles/buttons.scss';
+import '../styles/_buttons.scss';
 
 /**
  * Button

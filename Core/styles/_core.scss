@@ -1,3 +1,6 @@
+@import './variables';
+
+html,body{margin:0; padding:0;}
 
 .amped-app{
   height:100%;
@@ -11,6 +14,18 @@
     .amped-app--loader{display:none;}
   }
 }
+
+.amped-container{
+  display:flex; flex-direction:column; height:100%;
+  * {font-family: 'Roboto', sans-serif;}
+}
+.amped-content-container{
+  display:flex; flex-direction:row; height:100%; background:#F2F2F2; min-height:calc(100vh - 64px);
+  .amped-content{
+    flex:5; padding:30px;
+  }
+}
+
 
 
 

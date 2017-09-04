@@ -12,19 +12,23 @@ export class AmpedService{
 
 
 	static getUser(){
-		if (this.user === null ){
+		return new Promise(( resolve, reject ) => {
+			if (this.user === null ){
+				const headers = new Headers(Object.assign({'Content-Type' : 'application/json'}, this._defaultHeaders()));
 
-			const headers = new Headers(Object.assign({'Content-Type' : 'application/json'}, this._defaultHeaders()));
+				return fetch(this._buildUrl('/api/user'),
+					{ headers })
+					.then(this._getBody.bind(this, headers))
+					.then(this._parseJSON.bind(this, headers))
+					.then(( resp ) => {
+						this.user = resp.response;
+						resolve(this.user);
+					});
 
-			return fetch(this._buildUrl('/api/user'),
-				{ headers })
-				.then(this._getBody.bind(this, headers))
-				.then(this._parseJSON.bind(this, headers))
-				.then(( resp ) => this.user = resp.response);
-
-		} else {
-			Promise.resolve(this.user);
-		}
+			} else {
+				resolve(this.user);
+			}
+		})
 	}
 
 	static get(url, data = {}, options = {}, supressSnack = false){

@@ -33,7 +33,7 @@ export const Sidebar = ({ navigation, location, ...props }) => (
 			) ) }
 		</List>
 
-		<div className="amped-sidebar__last_updated">Last updated: September 3rd 2017</div>
+		<div className="amped-sidebar__last_updated">Last updated: September 4th 2017</div>
 
 	</div>
 );
