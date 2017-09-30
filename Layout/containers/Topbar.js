@@ -16,7 +16,7 @@ export class Topbar extends React.Component{
 
 	handleLogoutClick(){
 		AmpedStorage.removeUserToken();
-		window.location.href = '/';
+		// window.location.href = '/';
 	}
 
 	render(){
@@ -27,4 +27,5 @@ export class Topbar extends React.Component{
 
 }
 
-export default connect(mapStateToProps)(withRouter(Topbar))
+// export default connect(mapStateToProps)(withRouter(Topbar))
+export default connect(mapStateToProps)((Topbar))

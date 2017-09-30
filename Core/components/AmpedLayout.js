@@ -2,10 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { SnackBar, Confirm, Modal } from 'amped-react-core/Alerts';
 import { AmpedLoader } from 'amped-react-core/Common';
-import {Topbar as AmpedTopbar, Sidebar as AmpedSidebar, Content} from 'amped-react-core/Layout'
 import { AmpedTransitionPage } from 'amped-react-core/Core';
+import { Content } from 'amped-react-core/Layout';
 
-export const AmpedApp = ( { children, setup, user, TopbarComponent, SidebarComponent } ) => {
+export const AmpedLayout = ( { children, setup, user, TopbarComponent, SidebarComponent } ) => {
 	const isAuthed = typeof user.id !== 'undefined';
 	const style = isAuthed ? {} : {display:'flex', justifyContent:'center', marginTop:'5vh'};
 
@@ -22,7 +22,6 @@ export const AmpedApp = ( { children, setup, user, TopbarComponent, SidebarCompo
 							<AmpedTransitionPage style={style}>
 								{children}
 							</AmpedTransitionPage>
-
 						</Content>
 					</div>
 				</div>
@@ -38,4 +37,4 @@ export const AmpedApp = ( { children, setup, user, TopbarComponent, SidebarCompo
     );
 };
 
-export default connect(null,null,null, { withRef:true } )(AmpedApp);
+export default connect(null,null,null, { withRef:true } )(AmpedLayout);

@@ -53,6 +53,8 @@ export class Form extends React.Component{
 	}
 
 	componentWillReceiveProps(nextProps){
+
+		console.log(this.props, nextProps);
 		if (
 			( typeof this.props.formValues[this.props.name] === 'undefined' &&
 				typeof nextProps.data.fields !== 'undefined' && nextProps.data.fields.length > 0 ) ||

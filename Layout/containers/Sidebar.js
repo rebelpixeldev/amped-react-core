@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import {withRouter} from 'react-router';
+import { withRouter } from 'react-router-dom';
 import SidebarComponent from '../components/Sidebar'
 
 import SocialPeople from 'material-ui/svg-icons/social/people';
@@ -28,6 +28,7 @@ class Sidebar extends React.Component{
 	constructor(props){
 		super(props);
 		this.props = props;
+		console.log(this.props);
 	}
 
 	render(){
@@ -38,4 +39,6 @@ class Sidebar extends React.Component{
 
 }
 
-export default withRouter(connect(mapStateToProps)(Sidebar))
+
+export default withRouter(connect(mapStateToProps)((Sidebar)))
+// export default (connect(mapStateToProps)(Sidebar))

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { default as ResetPasswordComponent } from '../components/ResetPassword';
-import { browserHistory } from 'react-router';
+import { withRouter } from "react-router-dom";
 
 import '../styles/_login.scss';
 
@@ -41,8 +41,8 @@ export class ResetPassword extends React.Component{
 
 	handleFormSubmit(resp){
 		this.setState({requesting:false});
-		if ( resp.success )
-			browserHistory.push('/login');
+		// if ( resp.success )
+			// this.props.history.push('/login');
 	}
 
 	handleFormRequestStart(vals){
@@ -61,4 +61,5 @@ export class ResetPassword extends React.Component{
 
 }
 
-export default connect(mapStateToProps)(ResetPassword)
+export default connect(mapStateToProps)((ResetPassword))
+// export default connect(mapStateToProps)(withRouter(ResetPassword))

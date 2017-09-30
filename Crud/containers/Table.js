@@ -1,6 +1,7 @@
 import React  from 'react';
 import { propTypes } from 'prop-types';
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom';
 
 import { AmpedTable } from 'amped-react-core/Table';
 import { AmpedCard } from 'amped-react-core/Common';
@@ -14,10 +15,11 @@ const mapStateToProps = (state) => ({
 });
 
 class Table extends React.Component{
-	
+
 	constructor(props){
 		super(props);
 		this.props = props;
+		console.log('TABLE PROPS', this.props);
 		this.state = {
 			model : this.getModelName(this.props),
 			loading : true,
@@ -44,7 +46,7 @@ class Table extends React.Component{
 	}
 
 	getModelName(props){
-		return typeof props.model === 'undefined' ? props.params.model : props.model;
+		return typeof props.model === 'undefined' ? props.match.params.model : props.model;
 	}
 
 
@@ -53,7 +55,7 @@ class Table extends React.Component{
 	}
 
 	handleMenuItemEditClick(row){
-		this.props.router.push(`/crud/edit/${this.state.model}/${row.id}`);
+		this.props.history.push(`/crud/edit/${this.state.model}/${row.id}`);
 	}
 
 	handleMenuItemDeleteClick(row){
@@ -78,18 +80,24 @@ class Table extends React.Component{
 				break;
 		}
 	}
-	
+
 	render(){
 			const title = typeof this.state.model !== 'undefined' ? AmpedUtil.capitalize(this.state.model) : '';
-
 		return (
 			<AmpedCard title={title}>
 				<AmpedTable ref="tableComponent" {...this.props} {...this.state} menuItems={this.state.rowMenuItems} getData={this.getData.bind(this)}  />
 			</AmpedCard>
 		)
 	}
-	
+
 }
 
 
-export default connect(mapStateToProps, null, null, {withRef:true})(ampedSocketConnector(Table, '*'))
+export default withRouter(connect(mapStateToProps, null, null, {withRef:true})(ampedSocketConnector(Table, '*')))
+
+
+// export const Table = ( props ) => {
+//     return ( <div>WTF</div> );
+// }
+//
+// export default Table;

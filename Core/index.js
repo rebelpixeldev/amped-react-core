@@ -6,6 +6,7 @@ import { AmpedStorage } from './AmpedStorage';
 
 export { default as ampedSocketConnector } from './components/SocketConnector';
 export { default as AmpedApp } from './containers/AmpedApp';
+export { default as AmpedLayout } from './containers/AmpedLayout';
 export { default as AmpedTransitionPage } from './containers/TransitionPage';
 export { default as ampedReducers } from './reducers/';
 

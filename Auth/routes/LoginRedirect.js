@@ -1,8 +1,4 @@
 
-var Router = require('react-router');
-import { browserHistory } from 'react-router';
-
-
 export default (store, reducer) => ({
 	path : '/login/:token',
 	getComponent (nextState, cb) {

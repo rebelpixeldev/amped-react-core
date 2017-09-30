@@ -90,7 +90,7 @@ class AmpedTable extends React.Component{
 
 	componentWillReceiveProps(newProps){
 		// console.log('RECIEVING PROPS', newProps);
-		if ( typeof this.props.params.model === 'undefined' && typeof this.props.model === 'undefined' )
+		if ( typeof this.props.match.params.model === 'undefined' && typeof this.props.model === 'undefined' )
 			throw new Error('There is no model associated with the table. You need to ensure that a model is passed either through the url or through the components props');
 		this.props = newProps;
 		this.getTableData();

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { browserHistory } from 'react-router';
+import { withRouter } from "react-router-dom";
 
 import {default as RegisterComponent } from '../components/Register';
 
@@ -76,4 +76,5 @@ export class Register extends React.Component{
 
 }
 
-export default connect(mapStateToProps)(Register)
+export default connect(mapStateToProps)((Register))
+// export default connect(mapStateToProps)(withRouter(Register))

@@ -1,6 +1,7 @@
 import {connect} from 'react-redux'
 import FormComponent from '../components/Form'
 import { CrudService } from 'amped-react-core/Crud';
+import { withRouter } from 'react-router-dom';
 
 import { AmpedService }  from 'amped-react-core/Core/AmpedService';
 
@@ -22,8 +23,8 @@ class Form extends React.Component {
 		this.props = props;
 		this.state = {
 			loading : false,
-			model: typeof this.props.model === 'undefined' ? this.props.params.model : this.props.model,
-			id: typeof this.props.id === 'undefined' ? this.props.params.id : this.props.id,
+			model: typeof props.model === 'undefined' ? this.props.match.params.model : props.model,
+			id: typeof this.props.id === 'undefined' ? this.props.match.params.id : this.props.id,
 			formData : {
 				method : 'POST',
 				action : '',
@@ -32,9 +33,6 @@ class Form extends React.Component {
 		}
 
 		this.service = new CrudService(this.state.model, this.state.id);
-
-
-
 	}
 
 	componentDidMount() {
@@ -84,4 +82,4 @@ class Form extends React.Component {
 	}
 
 }
-export default connect(mapStateToProps, null, null, {withRef:true})(Form)
+export default withRouter(connect(mapStateToProps, null, null, {withRef:true})(Form));
